@@ -1,0 +1,200 @@
+<!doctype html>
+<html class="scroll-smooth">
+    <head>
+        <title>Sophias Magical Princess Party</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./assets/main.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet"> 
+        <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
+        <script
+			  src="https://code.jquery.com/jquery-3.6.0.min.js"
+			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			  crossorigin="anonymous"
+              defer>
+		</script>
+        <script 
+              src="../assets/carousel.js"
+              defer>
+		</script>
+    </head>
+    <body class="bg-purple-200">
+	<!-- Navbar goes here -->
+        <nav class="bg-white shadow-lg">
+			<div class="max-w-100 mx-auto px-4">
+				<div class="flex justify-between">
+					<div class="flex space-x-7">
+						<div>
+							<!-- Website Logo -->
+							<a href="/" class="flex items-center py-4 px-2">
+								<img src="../assets/favicon-32x32.png" alt="Logo" class="h-8 w-8 mr-2">
+								<span class="font-semibold text-gray-500 text-lg flex">Sophias Magical Princess Party</span>
+							</a>
+						</div>
+						<!-- Primary Navbar items -->
+						<div class="hidden md:flex items-center space-x-1">
+							<a href="/" class="navlink py-4 px-2 text-purple-500 border-b-4 border-purple-500 font-semibold ">Home</a>
+							<a href="./characters/" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">Characters</a>
+							<a href="./pricing/" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">Pricing</a>
+							<a href="./contact/" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">Contact Us</a>
+                            <a href="./photos/" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">Photos</a>
+							<a href="./cast/" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">Cast</a>
+							<a href="./faq/" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">FAQ</a>
+						</div>
+
+					</div>
+					<!-- Mobile menu button -->
+					<div class="md:hidden flex items-center">
+						<button class="outline-none mobile-menu-button">
+						<svg class=" w-6 h-6 text-gray-500 hover:text-purple-500 "
+							x-show="!showMenu"
+							fill="none"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
+							<path d="M4 6h16M4 12h16M4 18h16"></path>
+						</svg>
+					</button>
+					</div>
+				</div>
+			</div>
+			<!-- mobile menu -->
+			<div class="md:hidden mobile-menu hidden">
+				<ul class="">
+					<li class="active"><a href="/" class="block text-sm px-2 py-4 text-white bg-purple-500 font-semibold">Home</a></li>
+					<li><a href="./characters/" class="block text-sm px-2 py-4 hover:bg-purple-500 transition duration-300">Characters</a></li>
+					<li><a href="./pricing/" class="block text-sm px-2 py-4 hover:bg-purple-500 transition duration-300">Pricing</a></li>
+					<li><a href="./contact/" class="block text-sm px-2 py-4 hover:bg-purple-500 transition duration-300">Contact Us</a></li>
+                    <li><a href="./photos/" class="block text-sm px-2 py-4 hover:bg-purple-500 transition duration-300">Photos</a></li>
+					<li><a href="./cast/" class="block text-sm px-2 py-4 hover:bg-purple-500 transition duration-300">Cast</a></li>
+					<li><a href="./faq/" class="block text-sm px-2 py-4 hover:bg-purple-500 transition duration-300">FAQ</a></li>
+				</ul>
+			</div>
+			<script>
+				const btn = document.querySelector("button.mobile-menu-button");
+				const menu = document.querySelector(".mobile-menu");
+
+				btn.addEventListener("click", () => {
+					menu.classList.toggle("hidden");
+				});
+			</script>
+		</nav>
+
+        <section class="max-w-7xl mx-auto mb-12">
+            <div class="bg-sky-600 lg:shadow-lg lg:rounded relative flex overflow-hidden max-h-[700px]">
+                <img src="./assets/Trio-Herov2.jpg" class="z-0 md:ml-auto object-cover object-bottom w-100">  
+                <div class="p-12 absolute z-10 text-center md:text-left place-self-center">
+                    <h1 class="text-3xl font-bold text-white md:text-7xl">A Royal Experience For Your Princess</h1>
+                    <p class="text-slate-200 text-xl md:text-4xl mt-4">Making Magic Real Since 2017</p>
+                    <div class="mt-8">
+                        <a href="./pricing/" class="bg-purple-700 text-white px-5 py-3 font-semibold rounded hover:bg-purple-900 hover:shadow-lg">Learn More</a>
+                        <a href="./contact/" class="bg-purple-700 text-white px-5 py-3 font-semibold rounded hover:bg-purple-900 hover:shadow-lg">Schedule Now</a>
+                    </div>
+                     
+                </div>
+            </div>
+        </section>
+
+        <!-- Begin main content -->
+        <section class="max-w-7xl mx-auto mb-12">
+            <div class="bg-white lg:shadow hover:shadow-2xl lg:rounded">
+                <div class="p-12 text-center">
+                    <h2 class="text-2xl font-bold">What Makes Us Different?</h2>
+                    <p>Sophia's Magical Princess Party isn't your typical party performer service. From the accurate costumes you might recognize from a park visit, to the fun and engaging activities, we do whatever it takes to make your day one to remember.</p>
+                </div>
+                <div class="md:flex">
+                    <div class="md:w-1/3 m-auto text-center">
+                        <!-- Edit images to be square -->
+                        <img class="rounded-full mx-auto max-h-72 w-72 my-10 -scale-x-100" src="../assets/Benefit 3.JPG">
+                        <h3 class="text-2xl font-bold">World Class Performers</h3>
+                        <p class="px-12 md:px-0 pb-12">From the first hello, to the hug goodbye, you can expect a magical time from our princesses.</p>
+                    </div>
+                    <div class="md:w-1/3 m-auto text-center">
+                        <img class="rounded-full mx-auto max-h-72 w-72 my-10" src="../assets/Benefit 2.JPG">
+                        <h3 class="text-2xl font-bold">An Eye for Detail</h3>
+                        <p class="px-12 md:px-0 pb-12">We constantly work to make sure your party experience is like the character came to life.</p>
+                    </div>
+                    <div class="md:w-1/3 m-auto text-center">
+                        <img class="rounded-full mx-auto max-h-72 w-72 my-10" src="../assets/Benefit 1.JPG">
+                        <h3 class="text-2xl font-bold">Unique Activities</h3>
+                        <p class="px-12 md:px-0 pb-12">Our princesses go above and beyond in making your day special.</p>
+                    </div>
+                </div>          
+            </div>
+        </section>
+        <section class="max-w-7xl mx-auto mb-12">
+             
+        </section>
+
+        <section class="max-w-7xl mx-auto mb-12">
+            <div class="bg-teal-600 lg:shadow lg:rounded">
+                <div class="md:flex">
+                    <div class="w-full md:w-1/2 m-auto text-center flex relative">
+                        <img class="w-100" src="../assets/reviews.jpg">
+                        <div class="px-6 absolute place-self-center">
+                                <div id="slider-1">
+                                    <h2 class="text-xl md:text-4xl font-test max-w-prose">"They really know how to make the birthday kiddo feel special!"</h2>
+                                    <p class="md:text-xl decoration-yellow-500 decoration-4 text-end font-test">-Inshirah Barakat, Google</p>
+                                </div>
+                                <div id="slider-2">
+                                    <h2 class="text-xl md:text-4xl font-test max-w-prose">"Great third experience using Sophia's Magical Princess Party! Love how in character they always are and very interactive. Highly recommend!"</h2>
+                                    <p class="md:text-xl decoration-yellow-500 decoration-4 text-end font-test">-Jessica Lyne, Facebook</p>
+                                </div>
+                                <div id="slider-3">
+                                    <h2 class="text-xl md:text-4xl font-test max-w-prose">"Rapunzel was kind, genuine and my kiddo was absolutely delighted by the visit!"</h2>
+                                    <p class="md:text-xl decoration-yellow-500 decoration-4 text-end font-test">-Becca Popland, Facebook</p>
+                                </div>
+                                <div id="slider-4">
+                                    <h2 class="text-xl md:text-4xl font-test max-w-prose">"Our little princess received the best personal video message from The Snow Queen! She absolutely loved it!"</h2>
+                                    <p class="md:text-xl decoration-yellow-500 decoration-4 text-end font-test">-Jimee Jensen-Caudle, Facebook</p>
+                                </div>
+                                <div id="slider-5">
+                                    <h2 class="text-xl md:text-4xl font-test max-w-prose">"Hands down the best present I could have ever bought my granddaughter for her birthday!"</h2>
+                                    <p class="md:text-xl decoration-yellow-500 decoration-4 text-end font-test">-James Scurlock, Google</p>
+                                </div>
+                            <!-- <div  class="flex justify-between w-12 mx-auto pb-2">
+                                <button id="sButton1" onclick="sliderButton1()" class="bg-purple-400 rounded-full w-4 pb-2 " ></button>
+                                <button id="sButton2" onclick="sliderButton2() " class="bg-purple-400 rounded-full w-4 p-2"></button>
+                            </div> -->
+                        </div>
+                    </div>    
+                    <div class="w-1/2 text-center flex relative">
+                        <img class="hidden md:block w-100 object-cover" src="../assets/testimonial2.JPG">
+                    </div>
+                </div>
+            </div>    
+        </section>
+
+        <section class="max-w-7xl mx-auto mb-12">
+            <div class="bg-white lg:shadow lg:rounded">
+                <div class="p-12 text-center">
+                    <h3 class="text-2xl font-bold">Proudly servicing the South Houston area.</h3>
+                    <p class="py-8 ">Have a question? Feel free to ask, click below to contact us today!</p>
+                    <a href="./contact/" class="mt-4 bg-purple-700 text-white px-5 py-3 font-semibold rounded hover:bg-purple-900 hover:shadow-lg">Contact Us</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Begin Footer -->
+        <section class="bg-white ">
+            <div class="max-w-100 mx-auto px-4">
+                <div class="w-1/2 mx-auto text-center">
+                    <p class="italic py-4">
+                        We offer a variety of unique, original characters from stories/fables that are not subject to copyright. 
+                        We are a private company; unaffiliated with any major production companies or theme parks. 
+                        Any similarities between these characters is completely coincidental and unintentional.
+                    </p>
+                    <img class="mx-auto pb-6" src="../assets/favicon-32x32.png">
+                </div>
+            </div>
+        </section>
+        
+    </body>
+</html>
