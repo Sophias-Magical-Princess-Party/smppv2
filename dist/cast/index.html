@@ -1,0 +1,198 @@
+<!doctype html>
+<html class="scroll-smooth">
+    <head>
+        <title>Sophias Magical Princess Party</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../assets/main.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet"> 
+        <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
+    </head>
+    <body class="bg-purple-200">
+	<!-- Navbar goes here -->
+        <nav class="bg-white shadow-lg">
+			<div class="max-w-100 mx-auto px-4">
+				<div class="flex justify-between">
+					<div class="flex space-x-7">
+						<div>
+							<!-- Website Logo -->
+							<a href="../" class="flex items-center py-4 px-2">
+								<img src="../assets/favicon-32x32.png" alt="Logo" class="h-8 w-8 mr-2">
+								<span class="font-semibold text-gray-500 text-lg">Sophias Magical Princess Party</span>
+							</a>
+						</div>
+						<!-- Primary Navbar items -->
+						<div class="hidden md:flex items-center space-x-1">
+							<a href="../" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">Home</a>
+							<a href="../characters/" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">Characters</a>
+							<a href="../pricing/" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">Pricing</a>
+							<a href="../contact/" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">Contact Us</a>
+                            <a href="../photos/" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">Photos</a>
+							<a href="/" class="navlink py-4 px-2 text-purple-500 border-b-4 border-purple-500 font-semibold ">Cast</a>
+							<a href="../faq/" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">FAQ</a>
+						</div>
+
+					</div>
+					<!-- Mobile menu button -->
+					<div class="md:hidden flex items-center">
+						<button class="outline-none mobile-menu-button">
+						<svg class=" w-6 h-6 text-gray-500 hover:text-purple-500 "
+							x-show="!showMenu"
+							fill="none"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
+							<path d="M4 6h16M4 12h16M4 18h16"></path>
+						</svg>
+					</button>
+					</div>
+				</div>
+			</div>
+			<!-- mobile menu -->
+			<div class="md:hidden mobile-menu hidden">
+				<ul class="">
+					<li><a href="../" class="block text-sm px-2 py-4 hover:bg-purple-500 transition duration-300">Home</a></li>
+					<li><a href="../characters/" class="block text-sm px-2 py-4 hover:bg-purple-500 transition duration-300">Characters</a></li>
+					<li><a href="../pricing/" class="block text-sm px-2 py-4 hover:bg-purple-500 transition duration-300">Pricing</a></li>
+					<li><a href="../contact/" class="block text-sm px-2 py-4 hover:bg-purple-500 transition duration-300">Contact Us</a></li>
+                    <li><a href="../photos/" class="block text-sm px-2 py-4 hover:bg-purple-500 transition duration-300">Photos</a></li>
+					<li class="active"><a href="/" class="block text-sm px-2 py-4 text-white bg-purple-500 font-semibold">Cast</a></li>
+					<li><a href="../faq/" class="block text-sm px-2 py-4 hover:bg-purple-500 transition duration-300">FAQ</a></li>
+				</ul>
+			</div>
+			<script>
+				const btn = document.querySelector("button.mobile-menu-button");
+				const menu = document.querySelector(".mobile-menu");
+
+				btn.addEventListener("click", () => {
+					menu.classList.toggle("hidden");
+				});
+			</script>
+		</nav>
+
+        <section class="md:max-w-7xl mx-auto mb-12 md:flex">
+            <div class="bg-white md:w-3/4 lg:shadow hover:shadow-2xl lg:rounded mx-auto mt-12 text-center">
+                <h1 class="text-5xl mt-12 pb-2 font-bold">Meet the Performers</h1>
+                <p class="text-xl font-light mb-12 px-5 md:px-0">The cast who makes magic real.</p>
+            </div>
+        </section>
+
+        <!-- Begin main content -->
+        <section>
+            <div class="max-w-7xl mx-auto mb-12 bg-white lg:rounded lg:shadow hover:shadow-2xl transition duration-300">
+                <div class="grid md:grid-cols-2 auto-cols-auto gap-10 text-left p-10">
+                    <div class="md:flex">
+                        <img src="https://i.ibb.co/Vtx7jBf/sophia.jpg" class="rounded-full m-auto">
+                        <div class="pt-3 md:pt-0 md:ml-8 m-auto">
+                            <p>Sophia Carraro is the owner, founder and President of Sophia's Magical Princess Party! Sophia took a short leave from February-August 2019 while she participated in the Disney College Program! Usually you'll see her as most of the characters offered. She attended college for theatre arts and cosmetology and definitely puts her skills to use!</p>
+                        </div>
+                    </div>
+
+                    <div class="md:flex">
+                        <img src="https://i.ibb.co/ZSzr2st/abbie-headshot.jpg" class="rounded-full m-auto">
+                        <div class="pt-3 md:pt-0 md:ml-8 m-auto">
+                            <p>Abigail Heisler is a proud full-time performer for Sophia's Magical Princess Party. Her roles consist of The Beauty Princess and Sleeping Beauty. A University of Houston alumni, she works as an Administrative Assistant for a global eFuels company. She is also a big sister to 5 kids! Abigail anticipates creating magical moments with your children that will make their dreams come true!</p>
+                        </div>
+                    </div>
+
+                    <div class="md:flex">
+                        <img src="https://i.ibb.co/74fLrCb/livi-resize.jpg" class="rounded-full m-auto">
+                        <div class="pt-3 md:pt-0 md:ml-8 m-auto">
+                            <p>Olivia Bell is a full-time performer at Sophia's Magical Princess Party. She has been in the princess industry for 8 years and is seen mostly as the Snow Princess, the Beauty Princess, and Cinderella. In her free time she enjoys musical theatre and spending time with her dog Bear! Olivia can’t wait to help make your child’s event magical!</p>
+                        </div>
+                    </div>
+
+                    <div class="md:flex">
+                        <img src="https://i.ibb.co/CVxpsM9/natalia.jpg" class="rounded-full m-auto">
+                        <div class="pt-3 md:pt-0 md:ml-8 m-auto">
+                            <p>Natalia Soriano is a full-time performer for SMPP. You can see her playing The Little Mermaid, The Latina Princess and more! Natalia has been involved with theatre for 10 years and was a camp counselor for the YMCA for one. Natalia couldn’t be more excited to be back with SMPP! </p>
+                        </div>
+                    </div>
+
+                    <div class="md:flex">
+                        <img src="https://i.ibb.co/S3qJKhG/kilee-resize.jpg" class="rounded-full m-auto">
+                        <div class="pt-3 md:pt-0 md:ml-8 m-auto">
+                            <p>KiLee Thompson is a full-time performer for Sophia's Magical Princess Party. She is a student at the University of Houston studying Communications and Nonprofit. She has been involved in theatre for 8 years and now occasionally helps design costumes for her local theatre!</p>
+                        </div>
+                    </div>
+
+                    <div class="md:flex">
+                        <img src="https://i.ibb.co/syLmGfW/savannah.jpg" class="rounded-full m-auto">
+                        <div class="pt-3 md:pt-0 md:ml-8 m-auto">
+                            <p>Savannah Leary is a part-time performer for Sophia's Magical Princess Party! Her roles consist of The Snow Princess and Rapunzel. She is a senior in high school who is part of the PALs program, where she mentors children. In her free time, you can find her dancing at the studio, singing in choir, or playing with her dogs! Savannah cannot wait to make your event magical! </p>
+                        </div>
+                    </div>
+
+                    <div class="md:flex">
+                        <img src="https://i.ibb.co/5TBpVNw/nayelly.jpg" class="rounded-full m-auto">
+                        <div class="pt-3 md:pt-0 md:ml-8 m-auto">
+                            <p>Nayelly Ortiz is a part-time performer at Sophia's Magical Princess Party! She is seen playing as The Polynesian Princess, The Arabian Princess, The Latina Princess and more. She loves theatre, dance and anything that is allowing her to exercise her creative side. She is currently in school studying for a bachelors in business marketing and hopes to someday own a local coffee shop. She started singing and dancing at a young age and is excited to meet your young ones soon!</p>
+                        </div>
+                    </div>
+
+                    <div class="md:flex">
+                        <img src="https://i.ibb.co/sVb2kCJ/taylor-resize.jpg" class="rounded-full m-auto">
+                        <div class="pt-3 md:pt-0 md:ml-8 m-auto">
+                            <p>Taylor Greny is a part-time performer, and is so happy to be a part of Sophia's Magical Princess Party! She's seen as The Scottish Princess, The Little Mermaid and others. She's currently studying a BFA in Acting and spends her afternoons drawing and crocheting. She's so excited to make your childs perty absolutely enchanted. </p>
+                        </div>
+                    </div>
+
+                    <div class="md:flex">
+                        <img src="https://i.ibb.co/vL2bCcS/teja.jpg" class="rounded-full m-auto">
+                        <div class="pt-3 md:pt-0 md:ml-8 m-auto">
+                            <p>Teja Lane is a part-time performer for Sophia's Magical Princess Party! She is a student at San Jacinto College and is studying communications with a focus in marketing. She has been performing for over 10 years in various different musicals and plays. Some of her favorite roles being “Gabrielle” in Cinderella, “Ariel” in footloose, and “Toffee” in Zombie Prom. She’s also a self-proclaimed Princess addict and has always loved Princess movies. She hopes she can bring a little bit of magic to your little ones special day! </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="max-w-7xl mx-auto mb-12 bg-white lg:rounded lg:shadow hover:shadow-2xl transition duration-300">
+                <div class="text-center">
+                    <h1 class="text-5xl pt-6 pb-2 font-bold">Alumni</h1>
+                </div>
+                <div class="grid md:grid-cols-3 auto-cols-auto gap-10 text-left p-10">
+                    <div class="text-center">
+                        <img src="https://i.ibb.co/Kw3p7ZX/rachel.jpg" class="rounded-full m-auto">
+                        <div class="m-auto">
+                            <p>Rachel Greeney</p>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <img src="https://i.ibb.co/myxwX9X/jake.jpg" class="rounded-full m-auto">
+                        <div class="m-auto">
+                            <p>Jake Wadkins</p>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <img src="https://i.ibb.co/Tc83s0P/layah.jpg" class="rounded-full m-auto">
+                        <div class="m-auto">
+                            <p>Layah Brown</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Begin Footer -->
+        <section class="bg-white ">
+            <div class="max-w-100 mx-auto px-4">
+                <div class="w-1/2 mx-auto text-center">
+                    <p class="italic py-4">
+                        We offer a variety of unique, original characters from stories/fables that are not subject to copyright. 
+                        We are a private company; unaffiliated with any major production companies or theme parks. 
+                        Any similarities between these characters is completely coincidental and unintentional.
+                    </p>
+                    <img class="mx-auto pb-6" src="../assets/favicon-32x32.png">
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
