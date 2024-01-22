@@ -21,6 +21,10 @@
               src="../assets/carousel.js"
               defer>
 		</script>
+        <script 
+                src="../assets/banner.js"
+                defer>
+        </script>
     </head>
     <body class="bg-purple-200">
 	<!-- Navbar goes here -->
@@ -88,7 +92,7 @@
 		</nav>
 
         <section class="max-w-7xl mx-auto mb-12">
-            <div class="bg-sky-600 lg:shadow-lg lg:rounded relative flex overflow-hidden max-h-[700px]">
+            <div class="bg-sky-600 lg:shadow-lg lg:rounded relative flex overflow-hidden max-h-[700px]" id="banner-1">
                 <img src="./assets/Trio-Herov2.jpg" class="z-0 md:ml-auto object-cover object-bottom w-100">  
                 <div class="p-12 absolute z-10 text-center md:text-left place-self-center">
                     <h1 class="text-3xl font-bold text-white md:text-7xl">A Royal Experience For Your Princess</h1>
@@ -97,10 +101,82 @@
                         <a href="./pricing/" class="bg-purple-700 text-white px-5 py-3 font-semibold rounded hover:bg-purple-900 hover:shadow-lg">Learn More</a>
                         <a href="./contact/" class="bg-purple-700 text-white px-5 py-3 font-semibold rounded hover:bg-purple-900 hover:shadow-lg">Schedule Now</a>
                     </div>
-                     
                 </div>
             </div>
         </section>
+
+
+        <section class="max-w-7xl mx-auto mb-12">
+            <div class="bg-teal-600 lg:shadow lg:rounded">
+                <div class="md:flex">
+                    <div class="w-full md:w-1/2 m-auto text-center flex relative">
+                        <img class="w-100" src="../assets/Popstar2.jpg">
+                        <div class="px-6 absolute place-self-center">
+                                <div class="rounded-full bg-purple-300 px-1">
+                                    <h2 class="text-xl md:text-4xl font-test text-white max-w-prose">This Popstar is now taking bookings!</h2>
+                                </div>
+                            <!-- <div  class="flex justify-between w-12 mx-auto pb-2">
+                                <button id="sButton1" onclick="sliderButton1()" class="bg-purple-400 rounded-full w-4 pb-2 " ></button>
+                                <button id="sButton2" onclick="sliderButton2() " class="bg-purple-400 rounded-full w-4 p-2"></button>
+                            </div> -->
+                        </div>
+                    </div>    
+                    <div class="w-1/2 text-center flex relative">
+                        <img class="hidden md:block w-100 object-cover" src="../assets/popstar1.jpg">
+                        
+                    </div>
+
+
+                </div>
+            </div>    
+        </section>
+
+        <!-- <section class="max-w-7xl mx-auto mb-12">
+            <div class="bg-sky-600 lg:shadow lg:rounded relative flex overflow-hidden max-h-[700px]">
+                <div class="md:flex">
+                    <div class="w-full m-auto text-center flex relative">
+                        <div class="place-self-center">
+                            <div id="banner-1">
+                                <img src="./assets/Trio-Herov2.jpg" class="z-0 md:ml-auto object-cover object-bottom w-100">
+                                <div class="p-12 absolute z-10 text-center md:text-left place-self-center">
+                                    <h1 class="text-3xl font-bold text-white md:text-7xl">A Royal Experience For Your Princess</h1>
+                                    <p class="text-slate-200 text-xl md:text-4xl mt-4">Making Magic Real Since 2017</p>
+                                    <div class="mt-8">
+                                        <a href="./pricing/"
+                                            class="bg-purple-700 text-white px-5 py-3 font-semibold rounded hover:bg-purple-900 hover:shadow-lg">Learn
+                                            More</a>
+                                        <a href="./contact/"
+                                            class="bg-purple-700 text-white px-5 py-3 font-semibold rounded hover:bg-purple-900 hover:shadow-lg">Schedule
+                                            Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="banner-2">
+                                <img src="./assets/Trio-Herov2.jpg" class="z-0 md:ml-auto object-cover object-bottom w-100">
+                                <div class="p-12 absolute z-10 text-center md:text-left place-self-center">
+                                    <h1 class="text-3xl font-bold text-white md:text-7xl">Tay Tay</h1>
+                                    <p class="text-slate-200 text-xl md:text-4xl mt-4">Making Magic Real Since 2017</p>
+                                    <div class="mt-8">
+                                        <a href="./pricing/"
+                                            class="bg-purple-700 text-white px-5 py-3 font-semibold rounded hover:bg-purple-900 hover:shadow-lg">Learn
+                                            More</a>
+                                        <a href="./contact/"
+                                            class="bg-purple-700 text-white px-5 py-3 font-semibold rounded hover:bg-purple-900 hover:shadow-lg">Schedule
+                                            Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between w-12 mx-auto pb-2">
+                                <button id="bButton1" onclick="sliderButton1()"
+                                    class="bg-purple-400 rounded-full w-4 pb-2 "></button>
+                                <button id="bButton2" onclick="sliderButton2() "
+                                    class="bg-purple-400 rounded-full w-4 p-2"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </section> -->
 
         <!-- Begin main content -->
         <section class="max-w-7xl mx-auto mb-12">
@@ -112,21 +188,21 @@
                 <div class="md:flex">
                     <div class="md:w-1/3 m-auto text-center">
                         <!-- Edit images to be square -->
-                        <img class="rounded-full mx-auto max-h-72 w-72 my-10 -scale-x-100" src="../assets/Benefit 3.JPG">
+                        <img class="rounded-full mx-auto max-h-72 w-72 my-10 -scale-x-100" src="https://i.ibb.co/vmYYDCL/Benefit-3.jpg">
                         <h3 class="text-2xl font-bold">World Class Performers</h3>
                         <p class="px-12 md:px-0 pb-12">From the first hello, to the hug goodbye, you can expect a magical time from our princesses.</p>
                     </div>
                     <div class="md:w-1/3 m-auto text-center">
-                        <img class="rounded-full mx-auto max-h-72 w-72 my-10" src="../assets/Benefit 2.JPG">
+                        <img class="rounded-full mx-auto max-h-72 w-72 my-10" src="https://i.ibb.co/qRvS53R/Benefit-2.jpg">
                         <h3 class="text-2xl font-bold">An Eye for Detail</h3>
                         <p class="px-12 md:px-0 pb-12">We constantly work to make sure your party experience is like the character came to life.</p>
                     </div>
                     <div class="md:w-1/3 m-auto text-center">
-                        <img class="rounded-full mx-auto max-h-72 w-72 my-10" src="../assets/Benefit 1.JPG">
+                        <img class="rounded-full mx-auto max-h-72 w-72 my-10" src="https://i.ibb.co/7YX4hwn/Benefit-1.jpg">
                         <h3 class="text-2xl font-bold">Unique Activities</h3>
                         <p class="px-12 md:px-0 pb-12">Our princesses go above and beyond in making your day special.</p>
                     </div>
-                </div>          
+                </div>      
             </div>
         </section>
         <section class="max-w-7xl mx-auto mb-12">
