@@ -102,24 +102,32 @@
 					</div>
 					<div class="w-1/2 m-auto text-center">
 						<p>Options:</p>
-						<label for="princesses">Characters:</label>
+						<label for="type">Character Type:</label>
+							<select name="type" id="type" class="appearance-none">
+								<option value="Princess" selected>Princess</option>
+								<option value="Impersonator">Impersonator</option>
+							</select>
+						<br>
+						<div id="princess-select">
+						<label for="princesses" >Number of Characters:</label>
 							<select name="princesses" id="princesses" class="appearance-none">
-								<option value="one">1</option>
+								<option value="one" selected>1</option>
 								<option value="two">2</option>
 								<option value="three">3</option>
 								<option value="multiple">4+</option>
 							</select>
 						<br>
-						
+						</div>
+
 						<label for="time">Party Length:</label>
 							<select name="time" id="time" class="appearance-none">
-								<option value="one">1 Hour</option>
+								<option value="one" selected>1 Hour</option>
 								<option value="two">2 Hours</option>
-								<option value="half">30 Minutes</option>
+								<option value="half" id="half">30 Minutes</option>
 							</select>
 						<hr class="my-4">
-						<p class="pricing-sub"><span id="amount">1</span> Princess<span class="hidden">es</span> for <span id="time-display">1</span> hour<span class="hidden">s</span> is:</p>
-						<p class="text-4xl font-extrabold" id="price">$175</p>
+						<p class="pricing-sub"><span id="amount">1</span> Character<span id="plural">s</span> for <span id="time-display">1</span> hour<span id="plural-time">s</span> is:</p>
+						<p class="text-4xl font-extrabold" id="price">$175</p><p class="text-4xl font-extrabold" id="price-imp">$225</p>
 					</div>
 					<div class="text-center my-8">
 						<a href="./pricing.html" class="bg-purple-700 text-white text-xl px-5 py-3 font-semibold rounded hover:bg-purple-900 hover:shadow-lg">Book Now</a>
@@ -134,7 +142,7 @@
 							<h3 class="text-4xl font-bold"><span class="pricing-main">Videos Calls</span></h3>
 							<label for="call">How Long of a Call</label>
 								<select name="caa" id="call" class="appearance-none">
-									<option value="fifteen">15 minutes</option>
+									<option value="fifteen" selected>15 minutes</option>
 									<option value="thirty">30 minutes</option>
 									<option value="prerec">Pre-Recorded</option>
 								</select>
@@ -152,11 +160,11 @@
         </section>
 
 		<section class="max-w-7xl mx-auto mb-12 md:flex">
-			<div class="bg-sky-300 lg:shadow hover:shadow-2xl lg:rounded mx-auto w-full p-6 mt-6 transition duration-300">
+			<div class="bg-emerald-300 lg:shadow hover:shadow-2xl lg:rounded mx-auto w-full p-6 mt-6 transition duration-300">
 				<div class="bg-white lg:rounded p-6">
-					<div class="md:m-6 md:p-6 md:flex flex-wrap divide-black">
+					<div class="md:m-3 md:p-3 md:flex flex-wrap divide-black">
 						<div class="m-auto p-6 ">
-							<p class="text-xl font-light">TRAVEL FEE: A travel fee may be applied to your party depending on the performers commute to the location of your event. If applicable, this will be calculated before final invoice is created.</p>
+							<p class="text-xl font-light"><p class="font-semibold text-2xl">TRAVEL FEE:</p> A travel fee may be applied to your party depending on the performers commute to the location of your event. If applicable, this will be calculated before final invoice is created.</p>
 						</div>
 					</div>
 				</div>
