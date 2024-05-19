@@ -1035,6 +1035,11 @@ select {
   border-color: rgb(148 163 184 / var(--tw-border-opacity));
 }
 
+.bg-emerald-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(110 231 183 / var(--tw-bg-opacity));
+}
+
 .bg-inherit {
   background-color: inherit;
 }
@@ -1453,6 +1458,10 @@ select {
 }
 
 @media (min-width: 768px) {
+  .md\:m-3 {
+    margin: 0.75rem;
+  }
+
   .md\:m-6 {
     margin: 1.5rem;
   }
@@ -1536,6 +1545,10 @@ select {
     --tw-divide-x-reverse: 0;
     border-right-width: calc(2px * var(--tw-divide-x-reverse));
     border-left-width: calc(2px * calc(1 - var(--tw-divide-x-reverse)));
+  }
+
+  .md\:p-3 {
+    padding: 0.75rem;
   }
 
   .md\:p-6 {
