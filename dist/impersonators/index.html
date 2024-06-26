@@ -1,0 +1,297 @@
+<!doctype html>
+<html class="scroll-smooth">
+    <head>
+        <title>Sophias Magical Princess Party</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
+        <link href="../assets/main.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet"> 
+        <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
+        <!-- <script
+			  src="https://code.jquery.com/jquery-3.6.0.min.js"
+			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			  crossorigin="anonymous"
+              defer>
+		</script> -->
+        <script 
+              src="../assets/pricing-tay.js"
+              defer>
+		</script>
+    </head>
+    <body class="bg-fuchsia-950">
+	<!-- Navbar goes here -->
+        <nav class="bg-white shadow-lg">
+        <div class="mx-auto max-w-100 px-2 sm:px-6 lg:px-8">
+            <div class="relative flex h-16 items-center justify-between">
+                <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                    <!-- Logo -->
+                    <div class="flex flex-shrink-0 items-center">
+                        <a href="/" class="md:mr-2">
+                        <img class="h-8 w-auto" src="../assets/favicon-32x32.png" alt="Sophias Magical Princess Party">
+                        </a>
+                        <a href="/" class="hidden md:flex">
+                        <span class="hidden md:flex font-semibold text-gray-500 text-lg">Sophias Magical Princess Party</span>
+                        </a>
+                    </div>
+                    <!-- Desktop Menu Buttons -->
+                    <div class="hidden sm:ml-6 sm:block">
+                        <div class="flex space-x-4">
+                            <a href="../" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">Home</a>
+							<a href="../characters/" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">Characters</a>
+							<a href="../pricing/" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">Pricing</a>
+							<a href="../contact/" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">Contact Us</a>
+                            <a href="../photos/" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">Photos</a>
+							<a href="../cast/" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">Cast</a>
+							<a href="../faq/" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">FAQ</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- SMTT -->
+                <div class="hidden absolute inset-y-0 right-0 md:flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                    <div class="relative ml-3">
+                        <div>
+                            <button type="button" class="relative bg-purple-600 flex rounded-full text-sm" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                <a href="../impersonators/" class="flex items-center py-2 px-2">
+								    <img src="../assets/star.png" alt="Logo" class="h-8 w-8 md:mr-2">
+								    <span class="hidden md:flex font-semibold text-white text-lg">Sophias Magical Taylor Tribute</span>
+                                    <img src="../assets/star.png" alt="Logo" class="h-8 w-8 md:ml-2">
+							    </a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="outline-none mobile-menu-button">
+                        <svg class=" w-6 h-6 text-gray-500 hover:text-purple-500 "
+                            x-show="!showMenu"
+                            fill="none"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+				</div>
+            </div>
+        </div>
+        <div class="md:hidden mobile-menu hidden">
+				<ul class="">
+					<li><a href="/" class="block text-sm px-2 py-4 hover:bg-purple-500 transition duration-300">Home</a></li>
+					<li><a href="../characters/" class="block text-sm px-2 py-4 hover:bg-purple-500 transition duration-300">Characters</a></li>
+					<li><a href="../pricing/" class="block text-sm px-2 py-4 hover:bg-purple-500 transition duration-300">Pricing</a></li>
+					<li><a href="../contact/" class="block text-sm px-2 py-4 hover:bg-purple-500 transition duration-300">Contact Us</a></li>
+                    <li><a href="../photos/" class="block text-sm px-2 py-4 hover:bg-purple-500 transition duration-300">Photos</a></li>
+					<li><a href="../cast/" class="block text-sm px-2 py-4 hover:bg-purple-500 transition duration-300">Cast</a></li>
+					<li><a href="../faq/" class="block text-sm px-2 py-4 hover:bg-purple-500 transition duration-300">FAQ</a></li>
+                    <li class="active"><a href="../impersonators" class="block text-sm px-2 py-4 text-white bg-purple-500 font-semibold">Sophias Magical Taylor Tribute</a></li>
+				</ul>
+			</div>
+			<script>
+				const btn = document.querySelector("button.mobile-menu-button");
+				const menu = document.querySelector(".mobile-menu");
+
+				btn.addEventListener("click", () => {
+					menu.classList.toggle("hidden");
+				});
+			</script>
+        </nav>
+
+ <!-- Original Header -->
+        <!-- <section class="max-w-7xl mx-auto mb-12">
+            <div class="bg-sky-600 lg:shadow-lg lg:rounded relative flex overflow-hidden max-h-[700px]" id="banner-1">
+                <img src="./assets/Trio-Herov2.jpg" class="z-0 md:ml-auto object-cover object-bottom w-100">  
+                <div class="p-12 absolute z-10 text-center md:text-left place-self-center">
+                    <h1 class="text-3xl font-bold text-white md:text-7xl">A Royal Experience For Your Princess</h1>
+                    <p class="text-slate-200 text-xl md:text-4xl mt-4">Making Magic Real Since 2017</p>
+                    <div class="mt-8">
+                        <a href="./pricing/" class="bg-purple-700 text-white px-5 py-3 font-semibold rounded hover:bg-purple-900 hover:shadow-lg">Learn More</a>
+                        <a href="./contact/" class="bg-purple-700 text-white px-5 py-3 font-semibold rounded hover:bg-purple-900 hover:shadow-lg">Schedule Now</a>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <section class="max-w-7xl mx-auto mb-12">
+            <div class="bg-sky-600 lg:shadow-lg lg:rounded relative flex overflow-hidden max-h-[350px] content-center" id="banner-1">
+                <img src="https://i.ibb.co/b6pBRPh/Picsart-24-06-23-22-07-45-890.jpg" class="z-0 md:ml-auto object-top md:object-[center_-12em] object-cover w-100">
+                <!-- <div class="absolute place-self-center grid justify-start">
+                    
+                </div>   -->
+                <div class="p-12 absolute z-20 text-center place-self-center">
+                    <img src="https://i.ibb.co/yn91kB3/fontbolt.png" class="drop-shadow z-10 object-scale-down md:h-48" style="-webkit-filter: drop-shadow(0px 0px 10px #fff); filter: drop-shadow(0px 0px 10px #fff);">
+                    <!-- <h1 class="text-3xl font-bold text-white md:text-7xl">A Royal Experience For Your Princess</h1> -->
+                    <img src="https://i.ibb.co/cFDyTqj/fontbolt-1.png" class="drop-shadow z-10 object-scale-down md:h-12" style="-webkit-filter: drop-shadow(0px 0px 10px #fff); filter: drop-shadow(0px 0px 10px #fff);">
+                    <div class="mt-8">
+                        <a href="../contact/" class="bg-fuchsia-950 text-white px-5 py-3 font-semibold rounded hover:bg-purple-950 hover:shadow-lg">Schedule Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-7xl mx-auto mb-12">
+            <div class="bg-blue-950 lg:shadow lg:rounded md:max-h-[450px]">
+                <div class="md:flex">
+                    <div class="flex md:w-1/2 m-auto text-center relative">
+                        <div class="bg-blue-950 p-6 mx-auto flex w-full">
+                            <div class="bg-blue-100 lg:rounded p-3 w-full">
+                                <div class="m-auto text-center">
+                                    <h3 class="text-4xl font-bold pb-2">Rates</h3>
+                                </div>
+                                <div class="m-auto text-center">
+
+                                    <label for="time">Event Length:</label>
+                                        <select name="time" id="time" class="appearance-none">
+                                            <option value="one" selected>1 Hour</option>
+                                            <option value="two">2 Hours</option>
+                                        </select>
+                                    <hr class="my-4">
+                                    <p class="pricing-sub">Prices start at:</p>
+                                    <p class="text-4xl font-extrabold" id="price-imp">$225</p>
+                                </div>
+                                <div class="text-center my-8">
+                                    <a href="../contact/" class="bg-fuchsia-950 text-white text-xl px-5 py-3 font-semibold rounded hover:bg-purple-950 hover:shadow-lg">Book Now</a>
+                                </div>
+                            </div>            
+                        </div>
+                    </div>    
+                    <div class="flex md:w-1/2 m-auto text-center relative">
+                        <div class="px-6 place-self-center">
+                            <div class="bg-blue-950 p-6 mx-auto flex w-full">
+                                <div class="bg-blue-100 lg:rounded p-3 w-full">
+                                    <div class="px-1">
+                                        <h2 class="md:text-xl font-test text-black max-w-prose">Our impersonator will sing live to a setlist that fans will love! This setlist takes up a majority of the event duration, unless discussed otherwise. We will of course make sure there is time, either before, or after the performance to take pictures with your new popstar bestie. Are you ready for it? Please view our Impersonator FAQs below.</h2>
+                                    </div>    
+                                </div>            
+                            </div>
+                                
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </section>
+
+        <section class="max-w-7xl mx-auto mb-12">
+            <div class="bg-blue-100 lg:rounded">
+                <div class="p-12 text-center">
+                    <h2 class="text-4xl font-bold">Photo and Video Gallery</h2>
+                </div>
+                <div class="bg-blue-100 lg:rounded px-10">
+                    <div ID="taylor" data-nanogallery2='{
+                        "thumbnailWidth": "300",
+                        "thumbnailHeight": "auto",
+                        "thumbnailBorderVertical": 0,
+                        "thumbnailBorderHorizontal": 0,
+                        "colorScheme": {
+                        "thumbnail": {
+                            "background": "rgba(0,0,0,0)"
+                        }
+                        },
+                        "thumbnailDisplayTransition": "",
+                        "thumbnailLabel": {
+                        "position": "overImageOnBottom",
+                        "display": false
+                        },
+                        "thumbnailAlignment": "center",
+                        "thumbnailOpenImage": true
+                    }'>
+                        <a href="https://i.ibb.co/TMwjshV/Picsart-24-06-14-23-51-10-603.jpg" data-ngthumb="https://i.ibb.co/TMwjshV/Picsart-24-06-14-23-51-10-603.jpg" data-ngdesc=""></a>
+                        <a href="https://i.ibb.co/zbMzM5G/Picsart-24-05-18-21-29-46-954.png" data-ngthumb="https://i.ibb.co/zbMzM5G/Picsart-24-05-18-21-29-46-954.png" data-ngdesc="">Taylor 2</a>
+                        <a href="https://i.ibb.co/7SLM5by/20240614-194052-web.jpg" data-ngthumb="https://i.ibb.co/7SLM5by/20240614-194052-web.jpg" data-ngdesc="">Taylor 3</a>
+                        <a href="https://i.ibb.co/T091BZz/Picsart-24-06-15-21-28-32-517.jpg" data-ngthumb="https://i.ibb.co/T091BZz/Picsart-24-06-15-21-28-32-517.jpg" data-ngdesc="">Taylor 4</a>
+                        <a href="https://i.ibb.co/q7Q4nNw/Picsart-24-06-23-22-02-42-522.jpg" data-ngthumb="https://i.ibb.co/q7Q4nNw/Picsart-24-06-23-22-02-42-522.jpg" data-ngdesc="">Taylor 5</a>
+                        <a href="https://youtu.be/Fep4kx-hw7c?si=8JOtzgILhpxIacrc" data-ngthumb="https://i.ibb.co/qj7qcqH/WilThumb.jpg" data-ngdesc="">Taylor Vid</a>
+                        <a href="https://i.ibb.co/b6pBRPh/Picsart-24-06-23-22-07-45-890.jpg" data-ngthumb="https://i.ibb.co/b6pBRPh/Picsart-24-06-23-22-07-45-890.jpg" data-ngdesc="">Taylor Vid</a>
+                        <a href="https://i.ibb.co/kGJN8wD/Picsart-24-06-23-18-58-25-974.jpg" data-ngthumb="https://i.ibb.co/kGJN8wD/Picsart-24-06-23-18-58-25-974.jpg" data-ngdesc="">Taylor 6</a>
+                        <a href="https://i.ibb.co/J7tdv3Q/Snapchat-852128026.jpg" data-ngthumb="https://i.ibb.co/J7tdv3Q/Snapchat-852128026.jpg" data-ngdesc="">Taylor 7</a>
+
+                    </div>         
+                </div>    
+            </div>
+        </section>
+
+        <section class="max-w-7xl mx-auto mb-12">
+            <div class="bg-blue-100 lg:shadow lg:rounded">
+                <div class="p-12 text-center">
+                    <h2 class="text-4xl font-bold">Performance FAQs</h2>
+                </div>
+                <div>
+					<details class="bg-blue-100 open:bg-purple-300 transistion duration-300">
+						<summary class="bg-inherit px-5 py-3 text-xl font-semibold cursor-pointer">What is the setlist?</summary>
+						<div class="bg-blue-100 px-5 py-3 border border-gray-300 font-light content">
+							<p>We provide a concert-like setlist that we promise fans will love. If you'd like to review it beforehand, we would be happy to have you adjust it and make requests.</p>
+							<p>This must be done at least a week before your event. Be aware that some songs may include curse words and adult topics.</p>
+						</div>
+					</details>
+				</div>   
+				<div>
+					<details class="bg-blue-100 open:bg-purple-300 transistion duration-300">
+						<summary class="bg-inherit px-5 py-3 text-xl font-semibold cursor-pointer">How long is the setlist?</summary>
+						<div class="bg-blue-100 px-5 py-3 border border-gray-300 font-light content">
+							<p>We will make the setlist last a majority of the time you book. I.e. if you book two hours instead of one, you will experience a longer performance (who doesn't love more songs?)</p>
+                            <p>If you'd like to shorten the time of the actual performance to make time for other activities, this must be discussed beforehand.</p>
+						</div>
+					</details>
+				</div>
+				<div>
+					<details class="bg-blue-100 open:bg-purple-300 transistion duration-300">
+						<summary class="bg-inherit px-5 py-3 text-xl font-semibold cursor-pointer">What equipment do you use? </summary>
+						<div class="bg-blue-100 px-5 py-3 border border-gray-300 font-light content">
+							<p>We will provide our own microphone, receiver, small speaker, and music. For bigger events with equipment or DJs, please discuss the set up with us beforehand.</p>
+						</div>
+					</details>
+				</div>
+				<div>
+					<details class="bg-blue-100 open:bg-purple-300 transistion duration-300">
+						<summary class="bg-inherit px-5 py-3 text-xl font-semibold cursor-pointer">Can Taylor give me an autograph?</summary>
+						<div class="bg-blue-100 px-5 py-3 border border-gray-300 font-light content">
+							<p>Our impersonators will decline any and all autograph requests.</p>
+						</div>
+					</details>
+				</div>
+				<div>
+					<details class="bg-blue-100 open:bg-purple-300 transistion duration-300">
+						<summary class="bg-inherit px-5 py-3 text-xl font-semibold cursor-pointer">How do costume changes work?</summary>
+						<div class="bg-blue-100 px-5 py-3 border border-gray-300 font-light content">
+							<p>We offer multiple different outfits. If you'd like costume changes at your event, a private/discreet area must be provided close by and discussed beforehand. Some costume changes only have a few seconds to pull off!</p>
+						</div>
+					</details>
+				</div>
+            </div>
+        </section>
+
+        <section class="max-w-7xl mx-auto mb-12">
+            <div class="bg-blue-100 lg:shadow lg:rounded">
+                <div class="p-12 text-center">
+                    <h3 class="text-2xl font-bold">Proudly servicing the Houston area.</h3>
+                    <p class="py-8 ">Have a question? Feel free to ask, click below to contact us today!</p>
+                    <a href="./contact/" class="mt-4 bg-fuchsia-950 text-white px-5 py-3 font-semibold rounded hover:bg-purple-950 hover:shadow-lg">Contact Us</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Begin Footer -->
+        <section class="bg-blue-100 ">
+            <div class="max-w-100 mx-auto px-4">
+                <div class="w-1/2 mx-auto text-center">
+                    <p class="italic py-4">
+                        We offer a variety of unique, original characters from stories/fables that are not subject to copyright. 
+                        We are a private company; unaffiliated with any major production companies or theme parks. 
+                        Any similarities between these characters is completely coincidental and unintentional.
+                    </p>
+                    <img class="mx-auto pb-6" src="../assets/favicon-32x32.png">
+                </div>
+            </div>
+        </section>
+        
+    </body>
+</html>
