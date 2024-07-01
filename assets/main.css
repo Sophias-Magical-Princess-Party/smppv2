@@ -877,6 +877,10 @@ select {
   max-height: 18rem;
 }
 
+.max-h-\[180px\] {
+  max-height: 180px;
+}
+
 .max-h-\[350px\] {
   max-height: 350px;
 }
