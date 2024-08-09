@@ -30,7 +30,7 @@ $("select").change(function() {
         document.getElementById("price").hidden = true;
         document.getElementById("price-imp").hidden = false;
         document.getElementById('princesses').value = "one"
-        $("#price-imp").text("$325");
+        $("#price-imp").text("$450");
         document.getElementById("half").hidden = true;
     }
     else if ($('#type').val() == "Princess") 
