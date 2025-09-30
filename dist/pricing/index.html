@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="scroll-smooth">
     <head>
-        <title>Sophias Magical Princess Party</title>
+        <title>Sophia's Magical Princess Party</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../assets/main.css" rel="stylesheet">
@@ -23,57 +23,73 @@
     </head>
     <body class="bg-purple-200">
 	<!-- Navbar goes here -->
-        <nav class="bg-white shadow-lg">
-			<div class="max-w-100 mx-auto px-4">
-				<div class="flex justify-between">
-					<div class="flex space-x-7">
-						<div>
-							<!-- Website Logo -->
-							<a href="../" class="flex items-center py-4 px-2">
-								<img src="../assets/favicon-32x32.png" alt="Logo" class="h-8 w-8 mr-2">
-								<span class="font-semibold text-gray-500 text-lg">Sophias Magical Princess Party</span>
+		<nav class="bg-white shadow-lg">
+			<div class="mx-auto max-w-100 px-2 sm:px-6 lg:px-8">
+				<div class="relative flex h-16 items-center justify-between">
+					<div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+						<!-- Logo -->
+						<div class="flex flex-shrink-0 items-center">
+							<a href="/" class="md:mr-2">
+							<img class="h-8 w-auto" src="../assets/favicon-32x32.png" alt="Sophia's Magical Princess Party">
+							</a>
+							<a href="/" class="hidden md:flex">
+							<span class="hidden md:flex font-semibold text-gray-500 text-lg">Sophia's Magical Princess Party</span>
 							</a>
 						</div>
-						<!-- Primary Navbar items -->
-						<div class="hidden md:flex items-center space-x-1">
-							<a href="../" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">Home</a>
-							<a href="../characters/" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">Characters</a>
-							<a href="/" class="navlink py-4 px-2 text-purple-500 border-b-4 border-purple-500 font-semibold ">Pricing</a>
-							<a href="../contact/" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">Contact Us</a>
-                            <a href="../photos/" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">Photos</a>
-							<a href="../cast/" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">Cast</a>
-							<a href="../faq/" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">FAQ</a>
+						<!-- Desktop Menu Buttons -->
+						<div class="hidden sm:ml-6 sm:block">
+							<div class="flex space-x-4">
+								<a href="../" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">Home</a>
+								<a href="../characters/" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">Characters</a>
+								<a href="../pricing/" class="navlink py-4 px-2 text-purple-500 border-b-4 border-purple-500 font-semibold ">Pricing</a>
+								<a href="../contact/" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">Contact Us</a>
+								<a href="../photos/" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">Photos</a>
+								<a href="../cast/" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">Cast</a>
+								<a href="../faq/" class="navlink py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300">FAQ</a>
+							</div>
 						</div>
-
 					</div>
-					<!-- Mobile menu button -->
+					<!-- SMTT -->
+					<div class="hidden absolute inset-y-0 right-0 md:flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+						<div class="relative ml-3">
+							<div>
+								<button type="button" class="relative bg-[#ffb0d8] flex rounded-full text-sm" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+									<a href="../impersonators/" class="flex items-center py-2 px-2">
+										<img src="../assets/star.png" alt="Logo" class="h-8 w-8 md:mr-2">
+										<span class="hidden md:flex font-semibold text-white text-lg">Sophia's Magical Taylor Tribute</span>
+										<img src="../assets/star.png" alt="Logo" class="h-8 w-8 md:ml-2">
+									</a>
+								</button>
+							</div>
+						</div>
+					</div>
 					<div class="md:hidden flex items-center">
 						<button class="outline-none mobile-menu-button">
-						<svg class=" w-6 h-6 text-gray-500 hover:text-purple-500 "
-							x-show="!showMenu"
-							fill="none"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-						>
-							<path d="M4 6h16M4 12h16M4 18h16"></path>
-						</svg>
-					</button>
+							<svg class=" w-6 h-6 text-gray-500 hover:text-purple-500 "
+								x-show="!showMenu"
+								fill="none"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path d="M4 6h16M4 12h16M4 18h16"></path>
+							</svg>
+						</button>
 					</div>
 				</div>
 			</div>
-			<!-- mobile menu -->
-			<div class="md:hidden mobile-menu hidden">
+        	<div class="md:hidden mobile-menu hidden">
 				<ul class="">
-					<li><a href="../" class="block text-sm px-2 py-4 hover:bg-purple-500 transition duration-300">Home</a></li>
+					<li><a href="/" class="block text-sm px-2 py-4 hover:bg-purple-500 transition duration-300">Home</a></li>
 					<li><a href="../characters/" class="block text-sm px-2 py-4 hover:bg-purple-500 transition duration-300">Characters</a></li>
-					<li class="active"><a href="/" class="block text-sm px-2 py-4 text-white bg-purple-500 font-semibold">Pricing</a></li>
+					<li class="active"><a href="../pricing/" class="block text-sm px-2 py-4 text-white bg-purple-500 font-semibold">Pricing</a></li>
 					<li><a href="../contact/" class="block text-sm px-2 py-4 hover:bg-purple-500 transition duration-300">Contact Us</a></li>
                     <li><a href="../photos/" class="block text-sm px-2 py-4 hover:bg-purple-500 transition duration-300">Photos</a></li>
 					<li><a href="../cast/" class="block text-sm px-2 py-4 hover:bg-purple-500 transition duration-300">Cast</a></li>
 					<li><a href="../faq/" class="block text-sm px-2 py-4 hover:bg-purple-500 transition duration-300">FAQ</a></li>
+                    <li><a href="../impersonators" class="block text-sm px-2 py-4 hover:bg-purple-500 transition duration-300">Sophia's Magical Taylor Tribute</a></li>
 				</ul>
 			</div>
 			<script>
@@ -84,8 +100,7 @@
 					menu.classList.toggle("hidden");
 				});
 			</script>
-		</nav>
-
+        </nav>
         <!-- Begin main content -->
 		<!-- <section class="max-w-7xl mx-auto mb-12 md:flex">
 			<div class="bg-white lg:shadow hover:shadow-2xl lg:rounded mx-auto mt-12 w-3/4 text-center">
@@ -126,11 +141,11 @@
 								<option value="half" id="half">30 Minutes</option>
 							</select>
 						<hr class="my-4">
-						<p class="pricing-sub"><span id="amount">1</span> Character<span id="plural">s</span> for <span id="time-display">1</span> hour<span id="plural-time">s</span> is:</p>
-						<p class="text-4xl font-extrabold" id="price">$175</p><p class="text-4xl font-extrabold" id="price-imp">$225</p>
+						<p class="pricing-sub"><span id="amount" >1</span> Character<span id="plural" hidden="">s</span> for <span id="time-display">1</span> hour<span id="plural-time" hidden="">s</span> is:</p>
+						<p class="text-4xl font-extrabold" id="price">$175</p><p class="text-4xl font-extrabold" id="price-imp" hidden="">$225</p>
 					</div>
 					<div class="text-center my-8">
-						<a href="./pricing.html" class="bg-purple-700 text-white text-xl px-5 py-3 font-semibold rounded hover:bg-purple-900 hover:shadow-lg">Book Now</a>
+						<a href="../contact/" class="bg-purple-700 text-white text-xl px-5 py-3 font-semibold rounded hover:bg-purple-900 hover:shadow-lg">Book Now</a>
 					</div>
                 </div>            
             </div>
@@ -153,7 +168,7 @@
 						</div>
 					</div>
 					<div class="text-center my-8">
-						<a href="./pricing.html" class="bg-purple-700 text-white text-xl px-5 py-3 font-semibold rounded hover:bg-purple-900 hover:shadow-lg">Book Now</a>
+						<a href="../contact/" class="bg-purple-700 text-white text-xl px-5 py-3 font-semibold rounded hover:bg-purple-900 hover:shadow-lg">Book Now</a>
 					</div> 
 				</div>      
             </div>
