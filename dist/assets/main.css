@@ -817,6 +817,10 @@ select {
   margin-left: 0.75rem;
 }
 
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
 .mt-12 {
   margin-top: 3rem;
 }
@@ -877,19 +881,20 @@ select {
   max-height: 18rem;
 }
 
-<<<<<<< HEAD
-=======
 .max-h-\[180px\] {
   max-height: 180px;
 }
 
->>>>>>> f55d2edd7680b3bd016c844329aa7836f32e134d
 .max-h-\[350px\] {
   max-height: 350px;
 }
 
 .max-h-\[700px\] {
   max-height: 700px;
+}
+
+.max-h-\[640px\] {
+  max-height: 640px;
 }
 
 .w-1\/2 {
@@ -1011,10 +1016,22 @@ select {
   gap: 1.5rem;
 }
 
+.space-x-1 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.25rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(1rem * var(--tw-space-x-reverse));
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-x-7 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1.75rem * var(--tw-space-x-reverse));
+  margin-left: calc(1.75rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .divide-black > :not([hidden]) ~ :not([hidden]) {

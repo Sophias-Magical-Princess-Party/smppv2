@@ -5,7 +5,7 @@ $("select").change(function() {
     }
     if($('#time').val() == "two") 
     {
-        $("#price-imp").text("$325");
+        $("#price-imp").text("$450");
     }
 });
 
