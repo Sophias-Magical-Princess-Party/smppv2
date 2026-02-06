@@ -31,8 +31,8 @@ function updatePricing() {
             if (time === 'half') { $('#time').val('one'); time = 'one'; }
             $('#princesses').val('one');
             $('#half').prop('hidden', true);
-            // set impersonator price: $450 for two, otherwise $225
-            if (time === 'two') { $('#price-imp').text('$450'); } else { $('#price-imp').text('$225'); }
+            // set impersonator price: $450 for two, otherwise $250
+            if (time === 'two') { $('#price-imp').text('$450'); } else { $('#price-imp').text('$250'); }
             princesses = 'one';
         } else if (type === 'kpop') {
         $('#princess-select').prop('hidden', true);
