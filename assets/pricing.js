@@ -31,9 +31,8 @@ function updatePricing() {
             if (time === 'half') { $('#time').val('one'); time = 'one'; }
             $('#princesses').val('one');
             $('#half').prop('hidden', true);
-            $('#multiple').prop('hidden', true);
-            // set impersonator price: $450 for two, otherwise $225
-            if (time === 'two') { $('#price-imp').text('$450'); } else { $('#price-imp').text('$225'); }
+            // set impersonator price: $450 for two, otherwise $250
+            if (time === 'two') { $('#price-imp').text('$450'); } else { $('#price-imp').text('$250'); }
             princesses = 'one';
         } else if (type === 'kpop') {
         $('#princess-select').prop('hidden', true);
@@ -42,7 +41,6 @@ function updatePricing() {
         $('#price-k').prop('hidden', false);
         $('#price-imp').prop('hidden', true);
         $('#half').prop('hidden', false);
-        $('#multiple').prop('hidden', false);
     } else if (type === 'Princess') {
         $('#princess-select').prop('hidden', false);
         $('#kpop-select').prop('hidden', true);
@@ -50,7 +48,6 @@ function updatePricing() {
         $('#price-k').prop('hidden', true);
         $('#price-imp').prop('hidden', true);
         $('#half').prop('hidden', false);
-        $('#multiple').prop('hidden', false);
     }
 
     princesses = $('#princesses').val();
