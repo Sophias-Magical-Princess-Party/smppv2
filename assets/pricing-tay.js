@@ -1,7 +1,7 @@
 $("select").change(function() {
     if($('#time').val() == "one") 
     {
-        $("#price-imp").text("$225");
+        $("#price-imp").text("$250");
     }
     if($('#time').val() == "two") 
     {
