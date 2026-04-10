@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sophia's Magical Princess Party - Photos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cinzel:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  /* -- TOKENS --------------------------------------------- */
+  :root {
+    --gold:      #C9A96E;
+    --gold-lt:   #E8D5A3;
+    --rose:      #D4768A;
+    --rose-lt:   #F2C4CF;
+    --lavender:  #A88EC0;
+    --sky:       #7EB8D4;
+    --cream:     #FAF6F0;
+    --ink:       #1A1118;
+    --ink-soft:  #3D2B3A;
+    --text:      #4A3A46;
+
+    --ff-title:  'Cinzel', serif;
+    --ff-serif:  'Cormorant Garamond', serif;
+    --ff-sans:   'Jost', sans-serif;
+
+    --ease-silk: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* -- RESET ---------------------------------------------- */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: var(--ff-serif);
+    font-size: 18px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  img { display: block; max-width: 100%; }
+  a  { color: inherit; text-decoration: none; }
+
+  /* -- STAR / SPARKLE SVG DEFS ---------------------------- */
+  .sparkle-field {
+    position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+  }
+  .sparkle-field svg { width: 100%; height: 100%; }
+
+  /* -- UTILITY -------------------------------------------- */
+  .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+  .gold-rule {
+    display: flex; align-items: center; gap: 1rem;
+    color: var(--gold); font-family: var(--ff-title); letter-spacing: 0.25em; font-size: 0.6rem; text-transform: uppercase;
+  }
+  .gold-rule::before, .gold-rule::after { content:''; flex:1; height:1px; background: linear-gradient(90deg, transparent, var(--gold-lt), transparent); }
+
+  /* -- NAVIGATION ----------------------------------------- */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: transparent;
+    transition: background 0.4s var(--ease-silk), box-shadow 0.4s;
+  }
+  nav.scrolled {
+    background: rgba(250,246,240,0.96);
+    box-shadow: 0 1px 24px rgba(26,17,24,0.08);
+    backdrop-filter: blur(8px);
+  }
+  .nav-logo {
+    font-family: var(--ff-title);
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    color: var(--ink);
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .nav-logo .crown { font-size: 1.2rem; }
+  .nav-links {
+    display: flex; gap: 2.4rem; list-style: none;
+    font-family: var(--ff-sans); font-size: 0.75rem; font-weight: 400;
+    letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .nav-links a {
+    color: var(--ink-soft);
+    position: relative;
+    transition: color 0.25s;
+  }
+  .nav-links a::after {
+    content:''; position: absolute; left:0; bottom:-3px; width:0; height:1px;
+    background: var(--gold); transition: width 0.3s var(--ease-silk);
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta {
+    font-family: var(--ff-sans); font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 0.65rem 1.6rem;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    transition: background 0.3s, color 0.3s;
+    border-radius: 2px;
+  }
+  .nav-cta:hover { background: var(--gold); color: var(--cream); }
+
+  /* -- HERO ----------------------------------------------- */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 8rem 2rem 6rem;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%,   rgba(212,118,138,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 70% at 15% 60%,  rgba(168,142,192,0.14) 0%, transparent 65%),
+      radial-gradient(ellipse 55% 50% at 85% 55%,  rgba(126,184,212,0.12) 0%, transparent 60%),
+      linear-gradient(175deg, #FDF9F4 0%, #F7EEF5 50%, #EFF3F9 100%);
+  }
+  .hero-bg::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    opacity: 0.6;
+  }
+  .hero-arc {
+    position: absolute; border-radius: 50%;
+    border: 1px solid rgba(201,169,110,0.25);
+    pointer-events: none;
+  }
+  .hero-arc-1 { width: 500px; height: 500px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+  .hero-arc-2 { width: 720px; height: 720px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+  .hero-arc-3 { width: 960px; height: 960px; top: 50%; left: 50%; transform: translate(-50%,-50%); opacity: 0.5; }
+
+  .hero-eyebrow {
+    font-family: var(--ff-sans); font-size: 0.65rem; font-weight: 400;
+    letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.6rem;
+    opacity: 0; animation: fadeUp 0.8s 0.2s var(--ease-silk) forwards;
+  }
+  .hero-title {
+    font-family: var(--ff-title);
+    font-size: clamp(2rem, 6vw, 5rem);
+    font-weight: 500;
+    line-height: 1.12;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+    max-width: 820px;
+    opacity: 0; animation: fadeUp 0.9s 0.35s var(--ease-silk) forwards;
+  }
+  .hero-title em {
+    font-style: italic;
+    background: linear-gradient(135deg, var(--rose) 0%, var(--lavender) 50%, var(--sky) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-subtitle {
+    margin-top: 1.6rem;
+    font-family: var(--ff-serif); font-size: 1.2rem; font-weight: 300;
+    color: var(--text); max-width: 520px; line-height: 1.7;
+    opacity: 0; animation: fadeUp 0.9s 0.5s var(--ease-silk) forwards;
+  }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-family: var(--ff-sans); font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 1.1rem 2.4rem;
+    background: var(--gold);
+    color: var(--cream);
+    border-radius: 2px;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 24px rgba(201,169,110,0.35);
+  }
+  .btn-primary:hover { background: #b8935a; transform: translateY(-2px); }
+  .btn-white {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-family: var(--ff-sans); font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 1.1rem 2.4rem;
+    background: white;
+    color: var(--rose);
+    border-radius: 2px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+  }
+  .btn-white:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+
+  .since-badge {
+    position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+    font-family: var(--ff-sans); font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); opacity: 0.7; display: flex; align-items: center; gap: 0.5rem;
+  }
+  .since-badge span { display: inline-block; width: 24px; height: 1px; background: var(--gold-lt); }
+
+  /* -- SECTION WRAPPER ------------------------------------ */
+  .section { padding: 7rem 2rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-family: var(--ff-sans); font-size: 0.6rem; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem; display: block;
+  }
+  .section-heading {
+    font-family: var(--ff-title);
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 500; line-height: 1.18;
+    color: var(--ink); letter-spacing: 0.02em;
+    max-width: 560px;
+  }
+
+  /* -- PHOTOS SECTION ------------------------------------- */
+  #photos {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse 70% 50% at 10% 20%, rgba(212,118,138,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 60% at 90% 70%, rgba(168,142,192,0.07) 0%, transparent 65%),
+      var(--cream);
+  }
+
+  /* The dynamic star canvas behind photos section */
+  #photos-star-canvas {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  #photos .section-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .photos-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+  .photos-header .section-label { margin-bottom: 0.6rem; }
+  .photos-header .section-heading { margin: 0 auto 1rem; }
+  .photos-header p {
+    font-family: var(--ff-serif); font-size: 1rem; font-weight: 300;
+    color: var(--text); max-width: 460px; margin: 0 auto;
+    line-height: 1.7; font-style: italic;
+  }
+
+  /* nanogallery2 thumbnail border-radius override */
+  .ngy2_thumbnail_container,
+  .ngy2_thumbnail_container img,
+  .ngy2_thumbnail_img,
+  .nGY2GThumbnail {
+    border-radius: 10px !important;
+    overflow: hidden !important;
+  }
+  .nGY2GThumbnail {
+    border-radius: 10px !important;
+  }
+  /* Override nanogallery2 thumbnail wrapper */
+  div[id^="ngy2p"] .nGY2GThumbnail,
+  div[id^="ngy2p"] .ngy2_thumbnail,
+  div[id^="ngy2p"] .ngy2_thumbnail > div:first-child {
+    border-radius: 10px !important;
+    overflow: hidden !important;
+  }
+  /* Gallery container centering */
+  #ngy2p {
+    margin: 0 auto !important;
+  }
+
+  /* -- CTA BAND ------------------------------------------- */
+  .cta-band {
+    background: linear-gradient(135deg, var(--rose) 0%, var(--lavender) 100%);
+    padding: 6rem 2rem; text-align: center; position: relative; overflow: hidden;
+  }
+  .cta-band::before {
+    content:''; position: absolute; inset:0;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+  .cta-band * { position: relative; z-index: 1; }
+  .cta-band .section-heading { color: white; max-width: 640px; margin: 0 auto; }
+  .cta-band p { color: rgba(255,255,255,0.85); margin: 1.2rem auto 2.5rem; max-width: 480px; font-size: 1rem; }
+  .cta-phone-big {
+    font-family: var(--ff-title);
+    font-size: clamp(2rem, 6vw, 4rem);
+    color: white; letter-spacing: 0.06em;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.2);
+    display: block; margin-bottom: 0.4rem;
+  }
+
+  /* -- FOOTER --------------------------------------------- */
+  footer {
+    background: var(--ink);
+    padding: 4rem 2rem 2rem;
+    color: rgba(255,255,255,0.5);
+    font-family: var(--ff-sans); font-size: 0.75rem;
+  }
+  .footer-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem; padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(201,169,110,0.15);
+  }
+  .footer-brand-name {
+    font-family: var(--ff-title); font-size: 1.1rem; color: white;
+    letter-spacing: 0.1em; margin-bottom: 0.8rem;
+  }
+  .footer-brand-tag { line-height: 1.7; max-width: 280px; }
+  .footer-socials { line-height: 1.7; max-width: 280px; color: white; margin-top: 0.8rem; }
+  .footer-col-title {
+    font-family: var(--ff-title); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem;
+  }
+  .footer-links { list-style: none; line-height: 2.2; }
+  .footer-links a { color: rgba(255,255,255,0.5); transition: color 0.25s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-bottom {
+    max-width: 1100px; margin: 2rem auto 0;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    font-size: 0.65rem; letter-spacing: 0.1em;
+  }
+  .footer-disclaimer { max-width: 600px; line-height: 1.6; opacity: 0.5; }
+
+  /* -- ANIMATIONS ----------------------------------------- */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes shimmer {
+    0%   { opacity: 0.3; }
+    50%  { opacity: 1; }
+    100% { opacity: 0.3; }
+  }
+  @keyframes starPulse {
+    0%, 100% { opacity: 0.2; transform: scale(0.8) rotate(0deg); }
+    50%       { opacity: 0.8; transform: scale(1.15) rotate(15deg); }
+  }
+  .sparkle { animation: shimmer 2s infinite; }
+  .sparkle:nth-child(2) { animation-delay: 0.4s; }
+  .sparkle:nth-child(3) { animation-delay: 0.8s; }
+  .sparkle:nth-child(4) { animation-delay: 1.2s; }
+  .sparkle:nth-child(5) { animation-delay: 1.6s; }
+
+  /* scroll reveal */
+  .reveal {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity 0.7s var(--ease-silk), transform 0.7s var(--ease-silk);
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+    /* -- MOBILE DRAWER -------------------------------------- */
+  .nav-drawer {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    pointer-events: none;
+  }
+  .nav-drawer-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(26,17,24,0.45);
+    opacity: 0;
+    transition: opacity 0.35s var(--ease-silk);
+    backdrop-filter: blur(2px);
+  }
+  .nav-drawer-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: min(320px, 85vw);
+    height: 100%;
+    background: var(--cream);
+    padding: 5.5rem 2.4rem 2.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transform: translateX(100%);
+    transition: transform 0.38s var(--ease-silk);
+    box-shadow: -8px 0 40px rgba(26,17,24,0.12);
+    overflow-y: auto;
+  }
+  .nav-drawer.open {
+    pointer-events: all;
+  }
+  .nav-drawer.open .nav-drawer-backdrop { opacity: 1; }
+  .nav-drawer.open .nav-drawer-panel { transform: translateX(0); }
+ 
+  .nav-drawer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(201,169,110,0.2);
+  }
+  .nav-drawer-links li {
+    border-bottom: 1px solid rgba(201,169,110,0.2);
+  }
+  .nav-drawer-links a {
+    display: block;
+    padding: 1.1rem 0;
+    font-family: var(--ff-sans);
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    transition: color 0.2s, padding-left 0.2s;
+  }
+  .nav-drawer-links a:hover { color: var(--gold); padding-left: 0.5rem; }
+  .nav-drawer-cta {
+    margin-top: 2rem;
+    display: block;
+    text-align: center;
+    font-family: var(--ff-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.9rem 1.6rem;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    border-radius: 2px;
+    transition: background 0.3s, color 0.3s;
+  }
+  .nav-drawer-cta:hover { background: var(--gold); color: var(--cream); }
+
+    .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 201;
+    flex-shrink: 0;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform 0.35s var(--ease-silk), opacity 0.25s, width 0.3s var(--ease-silk);
+    transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+  
+
+/* ------------------------------------------------------------
+   RESPONSIVE
+   ------------------------------------------------------------ */
+@media (max-width: 1100px) {
+  .characters-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 900px) {
+  nav { padding: 1.2rem 1.5rem;}
+  .nav-links, .nav-cta { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-drawer { display: block; }
+  .pillars { grid-template-columns: 1fr; gap: 2px; }
+  .how-grid { grid-template-columns: 1fr; }
+  .how-visual { display: none; }
+  .characters-grid { grid-template-columns: repeat(2,1fr); }
+  .testi-grid { grid-template-columns: 1fr; }
+  .pricing-calculator { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .hero-photo-strip { display: none; }
+  .characters-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .lightbox-outfits { grid-template-columns: repeat(2, 1fr); padding: 1.4rem; }
+  .lightbox-header  { padding: 1.4rem 1.4rem 1rem; }
+  .lightbox-cta     { padding: 1.2rem 1.4rem; }
+  .footer-inner     { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+@media (max-width: 480px) {
+  .characters-grid  { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+  .lightbox-outfits { grid-template-columns: 1fr 1fr; gap: 0.8rem; padding: 1rem; }
+}
+</style>
+<script src="https://kit.fontawesome.com/6ddc09e848.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
+</head>
+<body>
+
+<!-- -- NAVIGATION ------------------------------------------ -->
+<nav id="nav">
+  <a href="/" class="nav-logo">
+    <span class="crown">✦</span>
+    Sophia's Magical Princess Party
+  </a>
+  <ul class="nav-links" aria-label="Site navigation">
+    <li><a href="/characters">Characters</a></li>
+    <li><a href="/#how">How It Works</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/#testimonials">Reviews</a></li>
+    <li><a href="/#faq">FAQ</a></li>
+    <li><a href="/photos">Gallery</a></li>
+  </ul>
+  <a href="/#book" class="nav-cta">Book Now</a>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+  <div class="nav-drawer-backdrop" id="nav-drawer-backdrop"></div>
+  <div class="nav-drawer-panel" role="dialog" aria-label="Navigation menu">
+    <ul class="nav-drawer-links">
+      <li><a href="/characters">Characters</a></li>
+      <li><a href="/#how">How It Works</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#testimonials">Reviews</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/photos">Gallery</a></li>
+    </ul>
+    <a href="/#book" class="nav-drawer-cta">&#10022; &nbsp;Book Now</a>
+  </div>
+</div>
+
+<!-- -- PHOTOS GALLERY --------------------------------------- -->
+<section class="section" id="photos">
+
+  <!-- Dynamic star canvas - filled by JS -->
+  <canvas id="photos-star-canvas"></canvas>
+
+  <div class="section-inner">
+    <div class="photos-header reveal">
+      <h2 class="section-heading">A Gallery of <em style="font-style:italic;color:var(--rose);">Magical</em> Memories</h2>
+    </div>
+
+    <div ID="ngy2p" style="max-width: 1100px;" data-nanogallery2='{
+        "itemsBaseURL": "https://i.ibb.co/",
+        "thumbnailWidth": "200",
+        "thumbnailHeight": "auto",
+        "thumbnailBorderVertical": 0,
+        "thumbnailBorderHorizontal": 0,
+        "colorScheme": {
+            "thumbnail": {
+            "borderColor": "rgba(0,0,0,0)"
+            }
+        },
+        "thumbnailLabel": {
+            "position": "overImageOnBottom",
+            "display": false
+        },
+        "galleryDisplayMode": "moreButton",
+        "galleryDisplayMoreStep": 3,
+        "thumbnailAlignment": "center",
+        "thumbnailGutterWidth": 50,
+        "thumbnailGutterHeight": 50,
+        "thumbnailOpenImage": true
+        }'>
+        <a href="35xgzjQF/Picsart-25-03-17-14-52-21-223.jpg" data-ngthumb="35xgzjQF/Picsart-25-03-17-14-52-21-223.jpg" data-ngdesc=""></a>
+        <a href="k2CyQbws/FB-IMG-1737296679698.jpg" data-ngthumb="k2CyQbws/FB-IMG-1737296679698.jpg" data-ngdesc=""></a>
+        <a href="HpYg84ZM/IMG-20251014-143419.jpg" data-ngthumb="HpYg84ZM/IMG-20251014-143419.jpg" data-ngdesc=""></a>
+        <a href="q3qRR0B7/Picsart-25-10-12-16-52-58-327.jpg" data-ngthumb="q3qRR0B7/Picsart-25-10-12-16-52-58-327.jpg" data-ngdesc=""></a>
+        <a href="PvZnMJmG/Picsart-25-07-27-15-34-25-042.jpg" data-ngthumb="PvZnMJmG/Picsart-25-07-27-15-34-25-042.jpg" data-ngdesc=""></a>
+        <a href="10RD7h7/Picsart-24-03-10-15-40-14-350.jpg" data-ngthumb="10RD7h7/Picsart-24-03-10-15-40-14-350.jpg" data-ngdesc=""></a>
+        <a href="8nxdbwyb/FB-IMG-1737296659997-crop.jpg" data-ngthumb="8nxdbwyb/FB-IMG-1737296659997-crop.jpg" data-ngdesc=""></a>
+        <a href="MxDNw3G4/Picsart-25-10-19-23-00-37-641.jpg" data-ngthumb="MxDNw3G4/Picsart-25-10-19-23-00-37-641.jpg" data-ngdesc=""></a>
+        <a href="Hq1LfPW/Picsart-24-06-14-23-51-10-603.jpg" data-ngthumb="Hq1LfPW/Picsart-24-06-14-23-51-10-603.jpg" data-ngdesc=""></a>
+        <a href="JT4Njh1/20251206-111831.avif" data-ngthumb="JT4Njh1/20251206-111831.avif" data-ngdesc=""></a>
+        <a href="dwBS4WyP/IMG-20250330-193402.avif" data-ngthumb="dwBS4WyP/IMG-20250330-193402.avif" data-ngdesc=""></a>
+        <a href="3ccsM1B/Picsart-24-03-09-13-19-47-709.jpg" data-ngthumb="3ccsM1B/Picsart-24-03-09-13-19-47-709.jpg" data-ngdesc=""></a>
+        <a href="vxb55kH7/Gallery-6.jpg" data-ngthumb="vxb55kH7/Gallery-6.jpg" data-ngdesc=""></a>
+        <a href="LW7qKqJ/Gallery-1.jpg" data-ngthumb="LW7qKqJ/Gallery-1.jpg" data-ngdesc=""></a>
+        <a href="PZ2h3cFq/Gallery-3.jpg" data-ngthumb="PZ2h3cFq/Gallery-3.jpg" data-ngdesc=""></a>
+        <a href="1DfQSmC/Gallery-10.jpg" data-ngthumb="1DfQSmC/Gallery-10.jpg" data-ngdesc=""></a>
+        <a href="8LNVZWqf/Gallery-8.jpg" data-ngthumb="8LNVZWqf/Gallery-8.jpg" data-ngdesc=""></a>
+        <a href="nMnRHfJf/Gallery-9.jpg" data-ngthumb="nMnRHfJf/Gallery-9.jpg" data-ngdesc=""></a>
+        <a href="0R6Zd4bz/Gallery-12.jpg" data-ngthumb="0R6Zd4bz/Gallery-12.jpg" data-ngdesc=""></a>
+        <a href="KpfCG78t/Gallery-15.jpg" data-ngthumb="KpfCG78t/Gallery-15.jpg" data-ngdesc=""></a>
+        <a href="S4QvF6Qm/Gallery-13.jpg" data-ngthumb="S4QvF6Qm/Gallery-13.jpg" data-ngdesc=""></a>
+        <a href="5gBkX7qG/Gallery-18.jpg" data-ngthumb="5gBkX7qG/Gallery-18.jpg" data-ngdesc=""></a>
+        <a href="wN2K8Ftj/Gallery-16.jpg" data-ngthumb="wN2K8Ftj/Gallery-16.jpg" data-ngdesc=""></a>
+        <a href="m5Yr3JF1/Gallery-19.jpg" data-ngthumb="m5Yr3JF1/Gallery-19.jpg" data-ngdesc=""></a>
+        <a href="yn0vbnrF/Gallery-20.jpg" data-ngthumb="yn0vbnrF/Gallery-20.jpg" data-ngdesc=""></a>
+        <a href="v4n0MGQg/Gallery-24.jpg" data-ngthumb="v4n0MGQg/Gallery-24.jpg" data-ngdesc=""></a>
+        <a href="6JnHsFmD/Gallery-22.jpg" data-ngthumb="6JnHsFmD/Gallery-22.jpg" data-ngdesc=""></a>
+        <a href="0jn1w1jw/Gallery-25.jpg" data-ngthumb="0jn1w1jw/Gallery-25.jpg" data-ngdesc=""></a>
+        <a href="tf839d4/Gallery-30.jpg" data-ngthumb="tf839d4/Gallery-30.jpg" data-ngdesc=""></a>
+        <a href="Lzrg6Gz0/Gallery-35.jpg" data-ngthumb="Lzrg6Gz0/Gallery-35.jpg" data-ngdesc=""></a>
+        <a href="tPWZfCMG/Gallery-36.jpg" data-ngthumb="tPWZfCMG/Gallery-36.jpg" data-ngdesc=""></a>
+        <a href="YBPjRcP6/Gallery-34.jpg" data-ngthumb="YBPjRcP6/Gallery-34.jpg" data-ngdesc=""></a>
+        <a href="Jw26JcQK/Gallery-40.jpg" data-ngthumb="Jw26JcQK/Gallery-40.jpg" data-ngdesc=""></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- -- CTA BAND --------------------------------------------- -->
+<section class="cta-band" id="book">
+  <span class="section-label" style="color:rgba(255,255,255,0.7)">Ready to Create Magic?</span>
+  <h2 class="section-heading" style="max-width:640px;margin:0.8rem auto 0;">Book Your Party Today</h2>
+  <!-- <a class="cta-phone-big" href="tel:8324416539">(832) 441-6539</a> -->
+  <a href="./index.html#book" class="btn-white">✦ Book Now</a>
+</section>
+
+<!-- -- FOOTER ----------------------------------------------- -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">✦ Sophia's Magical Princess Party</div>
+      <p class="footer-brand-tag">Bringing beloved heroine characters to life for children's celebrations across the South Houston area since 2017.</p>
+      <p class="footer-socials">
+        <a href="https://www.instagram.com/sophiasprincessparty/"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/sophiasmagicalprincessparty/"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://www.google.com/search?client=firefox-b-1-d&q=sophias+magical+princess+party"><i class="fa-brands fa-google"></i></a>
+      </p>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <ul class="footer-links">
+        <li><a href="/characters">Characters</a></li>
+        <li><a href="/#how">How It Works</a></li>
+        <li><a href="/#pricing">Pricing</a></li>
+        <li><a href="/#testimonials">Reviews</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="/photos"></a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="tel:8324416539">(832) 441-6539</a></li>
+        <li><a href="mailto:sophiasmagicalprincessparty@gmail.com">sophiasmagicalprincessparty@gmail.com</a></li>
+        <li>South Houston, TX</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Sophia's Magical Princess Party. All rights reserved.</span>
+    <span class="footer-disclaimer">We offer unique original characters inspired by classic stories and fables. We are a private company unaffiliated with any major production company or theme park. Any similarity to trademarked characters is coincidental.</span>
+  </div>
+</footer>
+
+<script>
+  // -- NAV scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // -- Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => io.observe(el));
+
+  // -------------------------------------------------------------
+  // -- DYNAMIC 4-POINTED STAR FIELD FOR PHOTOS SECTION ----------
+  // Stars are drawn on a canvas that auto-resizes with the section.
+  // When nanogallery2 loads more photos and the section grows taller,
+  // a ResizeObserver fires and redraws stars proportionally.
+  // -------------------------------------------------------------
+  (function() {
+    const canvas  = document.getElementById('photos-star-canvas');
+    const section = document.getElementById('photos');
+    const ctx     = canvas.getContext('2d');
+
+    // Brand colour palette from CSS tokens
+    const COLORS = ['#C9A96E', '#D4768A', '#A88EC0', '#7EB8D4', '#E8D5A3'];
+
+    // Star seed - deterministic positions expressed as 0-1 fractions
+    // so they scale correctly when the section resizes.
+    // Each entry: [xFrac, yFrac, size, colorIdx, delay(s), duration(s)]
+    let stars = [];
+
+    /**
+     * Generates a seeded set of star positions distributed across the
+     * given height (in px). Called once on init and again whenever new
+     * rows of photos are added, so stars fill the full section height.
+     */
+    // Mulberry32 - a high-quality 32-bit seeded PRNG
+    // Returns a function that yields a new 0-1 float each call
+    function makePRNG(seed) {
+      let s = seed >>> 0;
+      return function() {
+        s += 0x6D2B79F5;
+        let t = Math.imul(s ^ (s >>> 15), 1 | s);
+        t ^= t + Math.imul(t ^ (t >>> 7), 61 | t);
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+      };
+    }
+
+    function buildStars(width, height) {
+      // One star per ~14,000 px² of section area - scales naturally
+      const area        = width * height;
+      const targetCount = Math.max(18, Math.round(area / 14000));
+
+      // Keep existing stars, only add new ones to fill the new area
+      const existing = stars.length;
+      if (existing >= targetCount) return;
+
+      // Seed the PRNG from the existing count so new stars are
+      // deterministic but don't repeat the same positions
+      const rng = makePRNG(0xABCD1234 + existing * 6);
+
+      for (let i = existing; i < targetCount; i++) {
+        stars.push({
+          xFrac:    rng(),
+          yFrac:    rng(),
+          size:     3 + rng() * 8,            // 3-11 px half-span
+          colorIdx: Math.floor(rng() * COLORS.length),
+          delay:    rng() * 4,                // 0-4 s phase offset
+          duration: 1.8 + rng() * 2.4         // 1.8-4.2 s pulse cycle
+        });
+      }
+    }
+
+    /**
+     * Draws one 4-pointed diamond/star at (cx, cy) with the given
+     * half-size and colour, modulated by an animated alpha value.
+     */
+    function drawStar(cx, cy, size, color, alpha) {
+      const s = size;
+      ctx.save();
+      ctx.globalAlpha = alpha;
+      ctx.fillStyle   = color;
+      ctx.beginPath();
+      // Classic 4-pointed star: four cardinal points, narrow waist
+      ctx.moveTo(cx,      cy - s);      // top
+      ctx.lineTo(cx + s * 0.18, cy - s * 0.18);
+      ctx.lineTo(cx + s,  cy);          // right
+      ctx.lineTo(cx + s * 0.18, cy + s * 0.18);
+      ctx.lineTo(cx,      cy + s);      // bottom
+      ctx.lineTo(cx - s * 0.18, cy + s * 0.18);
+      ctx.lineTo(cx - s,  cy);          // left
+      ctx.lineTo(cx - s * 0.18, cy - s * 0.18);
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+    }
+
+    let animId = null;
+
+    function render(timestamp) {
+      const W = canvas.width;
+      const H = canvas.height;
+      ctx.clearRect(0, 0, W, H);
+
+      for (const st of stars) {
+        const cx = st.xFrac * W;
+        const cy = st.yFrac * H;
+        // Smooth sine-wave pulsing: opacity oscillates between 0.12 and 0.65
+        const t     = (timestamp / 1000 - st.delay) / st.duration;
+        const alpha = 0.12 + 0.53 * (0.5 + 0.5 * Math.sin(t * Math.PI * 2));
+        drawStar(cx, cy, st.size, COLORS[st.colorIdx], alpha);
+      }
+
+      animId = requestAnimationFrame(render);
+    }
+
+    function resize() {
+      const rect = section.getBoundingClientRect();
+      const W    = section.offsetWidth;
+      const H    = section.offsetHeight;
+
+      canvas.width  = W;
+      canvas.height = H;
+
+      buildStars(W, H);
+    }
+
+    // ResizeObserver watches the section: fires whenever nanogallery2
+    // adds more photo rows and the section grows taller.
+    const ro = new ResizeObserver(() => resize());
+    ro.observe(section);
+
+    // Initial draw
+    resize();
+    animId = requestAnimationFrame(render);
+
+    // Also apply border-radius to nanogallery2 thumbnails via
+    // MutationObserver so it catches dynamically inserted items
+    const galleryEl = document.getElementById('ngy2p');
+    const thumbObserver = new MutationObserver(() => {
+      galleryEl.querySelectorAll(
+        '.nGY2GThumbnail, .ngy2_thumbnail, [class*="ngy2"]'
+      ).forEach(el => {
+        el.style.borderRadius = '10px';
+        el.style.overflow     = 'hidden';
+      });
+    });
+    thumbObserver.observe(galleryEl, { childList: true, subtree: true });
+
+    // Also fire once after nanogallery2 initialises (short delay)
+    setTimeout(() => {
+      galleryEl.querySelectorAll(
+        '.nGY2GThumbnail, .ngy2_thumbnail, [class*="ngy2"]'
+      ).forEach(el => {
+        el.style.borderRadius = '10px';
+        el.style.overflow     = 'hidden';
+      });
+    }, 800);
+
+  })();
+
+  // -- Hamburger menu
+  const hamburger = document.getElementById('nav-hamburger');
+  const drawer    = document.getElementById('nav-drawer');
+  const backdrop  = document.getElementById('nav-drawer-backdrop');
+ 
+  function openDrawer() {
+    hamburger.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer() {
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+ 
+  hamburger.addEventListener('click', () => {
+    drawer.classList.contains('open') ? closeDrawer() : openDrawer();
+  });
+  backdrop.addEventListener('click', closeDrawer);
+ 
+  // Close drawer when a link is clicked
+  drawer.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeDrawer);
+  });
+</script>
+</body>
+</html>
