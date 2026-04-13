@@ -720,6 +720,7 @@
   .reveal-delay-3 { transition-delay: 0.3s; }
 
    /* -- CONTACT FORM --------------------------------------- */
+     /* -- CONTACT FORM --------------------------------------- */
   .contact-form-wrap {
     margin-top: 2rem;
     padding: 2rem 2.2rem;
@@ -757,7 +758,8 @@
     cursor: pointer;
   }
   .form-field input,
-  .form-field textarea {
+  .form-field textarea,
+  .form-field select {
     width: 100%;
     font-family: var(--ff-serif);
     font-size: 0.95rem;
@@ -771,15 +773,23 @@
     -webkit-appearance: none;
     appearance: none;
   }
+  .form-field select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C9A96E' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.9rem center;
+    padding-right: 2.4rem;
+    cursor: pointer;
+  }
   .form-field input::placeholder,
   .form-field textarea::placeholder {
     color: rgba(74,58,70,0.35);
     font-style: italic;
   }
   .form-field input:focus,
-  .form-field textarea:focus {
+  .form-field textarea:focus,
+  .form-field select:focus {
     border-color: var(--gold);
-    background: #fff;
+    background-color: #fff;
     box-shadow: 0 0 0 3px rgba(201,169,110,0.12);
   }
   .form-field input[type="date"],
@@ -1041,7 +1051,7 @@
   </div>
 
 
-  <!-- photo strip: placeholder shapes representing real photos -->
+  <!-- photo strip -->
   <div class="hero-photo-strip" aria-hidden="true">
     <figure style="background:linear-gradient(160deg,#B5D4E8,#7EB8D4)">
       <div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;">
@@ -1124,7 +1134,7 @@
           <span class="char-name">The Little Mermaid</span>
           <span class="char-desc">Sea & Song</span>
         </div>
-        <img src="https://i.ibb.co/S4HWFbgG/AF2-A0-F5-D-F9-E3-419-A-9-BB9-AFCA61288104.jpg" alt="The Little Mermaid in her Kiss the Girl dress">
+        <img src="https://i.ibb.co/S4HWFbgG/AF2-A0-F5-D-F9-E3-419-A-9-BB9-AFCA61288104.jpg" alt="The Little Mermaid in her Kiss the Girl dress" loading="lazy">
       </div>
       <div class="char-card reveal reveal-delay-2">
         <!-- <div class="char-color"></div> -->
@@ -1140,7 +1150,7 @@
           <span class="char-name">Popstar Impersonator</span>
           <span class="char-desc">Fearless & Bejeweled</span>
         </div>
-        <img src="https://i.ibb.co/tTmZkvpm/Screenshot-20251112-151813-Instagram.jpg" alt="Popstar in her Midnights bodysuit smiling">
+        <img src="https://i.ibb.co/tTmZkvpm/Screenshot-20251112-151813-Instagram.jpg" alt="Popstar in her Midnights bodysuit smiling" loading="lazy">
       </div>
       <div class="char-card reveal reveal-delay-3">
         <!-- <div class="char-color"></div> -->
@@ -1148,7 +1158,7 @@
           <span class="char-name">Tinker Bell</span>
           <span class="char-desc">Faith, Trust & Pixiedust</span>
         </div>
-        <img src="https://i.ibb.co/VWVkr5SF/Screenshot-20260407-204932-Gallery.jpg" alt="Tinker Bell in a field basking in the sun">
+        <img src="https://i.ibb.co/VWVkr5SF/Screenshot-20260407-204932-Gallery.jpg" alt="Tinker Bell in a field basking in the sun" loading="lazy">
       </div>
     </div>
   </div>
@@ -1190,7 +1200,7 @@
 
       <div class="how-visual" aria-hidden="true">
         <div class="how-photo">
-          <img src="https://i.ibb.co/xtCWjz9V/88-F3-D80-A-A166-4694-90-EA-80-A49031-BA9-D.jpg" alt="A collection of princesses together on a bench listening to a story">
+          <img src="https://i.ibb.co/xtCWjz9V/88-F3-D80-A-A166-4694-90-EA-80-A49031-BA9-D.jpg" alt="A collection of princesses together on a bench listening to a story" loading="lazy">
         </div>
         <!-- <div class="how-photo">
           <img src="https://i.ibb.co/fYZNSNRL/Picsart-26-03-14-20-51-35-508.jpg">
@@ -1206,7 +1216,7 @@
   <div class="section-inner">
     <span class="section-label reveal">Transparent &amp; Simple</span>
     <h2 class="section-heading reveal">Build Your Royal Package</h2>
-    <p class="section-body reveal">Customize your perfect party by selecting your character type, duration, and number of performers - and see your price instantly.</p>
+    <p class="section-body reveal">Customize your perfect party by selecting your character type, duration, and number of performers - and get an estimate instantly.</p>
 
     <div class="pricing-calculator">
 
@@ -1239,6 +1249,7 @@
             <button class="pc-btn active" data-group="duration" data-val="60" onclick="pcSelect(this)"><span>1 Hour</span></button>
             <button class="pc-btn" data-group="duration" data-val="120" onclick="pcSelect(this)"><span>2 Hours</span></button>
             <button class="pc-btn" data-group="duration" data-val="30" onclick="pcSelect(this)"><span>30 Min</span></button>
+            <button class="pc-btn" data-group="duration" data-val="999" onclick="pcSelect(this)"><span>Photo Session</span></button>
           </div>
         </div>
 
@@ -1293,8 +1304,22 @@
                 <input type="text" id="cf-zipcode" name="zipcode" placeholder="77587" pattern="[0-9]{5}" maxlength="5">
               </div>
               <div class="form-field">
-                <label for="cf-length">Length of Stay (hours)</label>
-                <input type="number" id="cf-length" name="length" placeholder="1" min="0.5" max="4" step="0.5" readonly style="background:var(--cream);cursor:default;opacity:0.8;" title="Auto-filled from your duration selection above">
+                <label for="cf-length">Length of Stay</label>
+                <select id="cf-length" name="length">
+                  <option value="1" selected>1 Hour</option>
+                  <option value="2">2 Hours</option>
+                  <option value="0.5">30 Minutes</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row single">
+              <div class="form-field" style="display: none;">
+                <label for="cf-event-type">Type of Event</label>
+                <select id="cf-event-type" name="event_type">
+                  <option value="party">Party</option>
+                  <option value="photoshoot">Photoshoot</option>
+                </select>
               </div>
             </div>
 
@@ -1375,8 +1400,9 @@
     'princess-3-30':  345,
     'princess-3-60':  395,
     'princess-3-120': 650,
+    'princess-1-999': 200,
     // 4+ princesses → call for pricing (handled by undefined fallback)
-
+ 
     // K-Pop (no 30-min; anything over 1 hr = call)
     'kpop-1-60':  225,
     'kpop-1-120': 'call',
@@ -1384,29 +1410,27 @@
     'kpop-2-120': 'call',
     'kpop-3-60':  425,
     'kpop-3-120': 'call',
-
+ 
     // Impersonator (1 performer only)
     'impersonator-1-60':  250,
     'impersonator-1-120': 450,
   };
-
-  // Performer caps per type (stepper will still show but "+" is blocked at cap;
-  // princess allows 4+ but those resolve to 'call')
+ 
+  // Performer caps per type
   const MAX_PERFORMERS = { princess: 4, kpop: 3, impersonator: 1 };
-  // Display cap for stepper label (beyond this we show "call")
-  const CALL_ABOVE    = { princess: 3, kpop: 3, impersonator: 1 };
-
+ 
   const PACKAGE_NAMES = {
-    princess:     { 30: 'The Royal Greeting',   60: 'The Enchanted Party',    120: 'The Magical Kingdom'     },
-    kpop:         {                              60: 'The Idol Experience',    120: 'The K-Pop Extravaganza'  },
-    impersonator: {                              60: 'The Celebrity Bash',     120: 'The Superstar Soirée'    }
+    princess:     { 30: 'The Royal Greeting', 60: 'The Enchanted Party', 120: 'The Magical Kingdom', 999: 'The Princess Photoshoot'},
+    kpop:         { 60: 'The Idol Experience', 120: 'The K-Pop Extravaganza' },
+    impersonator: { 60: 'The Celebrity Bash',  120: 'The Superstar Soirée' }
   };
-
+ 
   const FEATURES = {
     princess: {
       30:  ['In-character performer(s)','Meet & greet','Photo opportunities','Storytime & autographs'],
       60:  ['In-character performer(s)','Meet & greet','Photo opportunities','Storytime & singalong','Autographed certificate'],
-      120: ['In-character performer(s)','Meet & greet','Photo opportunities','Storytime & singalong','Autographed certificate','Extended character experience','Royal games','Makeovers and Tattoos']
+      120: ['In-character performer(s)','Meet & greet','Photo opportunities','Storytime & singalong','Autographed certificate','Extended character experience','Royal games','Makeovers and Tattoos'],
+      999: ['<span>Partnership with <a style="color: #7EB8D4; text-decoration: underline;" href="https://livincolor.mypixieset.com" target="_blank" rel="noopener noreferrer">Liv in Color</a></span>','In-character performer','15 Photos Delivered Digitally']
     },
     kpop: {
       60:  ['In-character performer(s)','Meet & greet','Photo opportunities','Singalong & dance','Makeovers'],
@@ -1417,34 +1441,129 @@
       120: ['Full celebrity character experience','Photo opportunities','Extended singalong performance']
     }
   };
-
+ 
   // State
   let state = { type: 'princess', duration: 60, performers: 1 };
-
-  // Pre-fill length field on load
-  document.addEventListener('DOMContentLoaded', () => { updateCalc(); });
-
-  // -- Disable unavailable duration buttons ------------------
+ 
+  // Boot
+  document.addEventListener('DOMContentLoaded', () => {
+    updateCalc();
+    initFormListeners();
+  });
+ 
+  // ── Helpers ───────────────────────────────────────────────
+ 
+  // Enable/disable duration buttons based on current type, and fall back if needed
   function syncDurationButtons() {
     const { type } = state;
     document.querySelectorAll('[data-group="duration"]').forEach(btn => {
       const val = parseInt(btn.dataset.val);
-      // K-Pop: 30-min not available
-      const disabled = (type === 'kpop' && val === 30 || type === 'impersonator' && val === 30);
-      btn.disabled = disabled;
-      btn.style.opacity    = disabled ? '0.35' : '';
-      btn.style.cursor     = disabled ? 'not-allowed' : '';
-      btn.title            = disabled ? 'Not available for this Character Type' : '';
+      const disabled = (
+        (type === 'kpop'         && val === 30)  ||
+        (type === 'impersonator' && val === 30)  ||
+        (type === 'kpop'         && val === 999) ||
+        (type === 'impersonator' && val === 999)
+      );
+      btn.disabled      = disabled;
+      btn.style.opacity = disabled ? '0.35' : '';
+      btn.style.cursor  = disabled ? 'not-allowed' : '';
+      btn.title         = disabled ? 'Not available for this Character Type' : '';
     });
-    // If current duration now invalid, fall back to 60
-    if (type === 'kpop' && state.duration === 30) {
-      state.duration = 60;
-      document.querySelectorAll('[data-group="duration"]').forEach(b => {
-        b.classList.toggle('active', parseInt(b.dataset.val) === 60);
+    // Fall back to 60 if the current duration is no longer valid
+    const invalid = (
+      ((type === 'kpop' || type === 'impersonator') && state.duration === 30) ||
+      ((type === 'kpop' || type === 'impersonator') && state.duration === 999)
+    );
+    if (invalid) state.duration = 60;
+  }
+ 
+  // Highlight the button that matches state.duration
+  function syncDurationActiveButtons() {
+    document.querySelectorAll('[data-group="duration"]').forEach(b => {
+      b.classList.toggle('active', parseInt(b.dataset.val) === state.duration);
+    });
+  }
+ 
+  // Push state.duration → cf-event-type dropdown
+  function syncEventTypeField() {
+    const el = document.getElementById('cf-event-type');
+    if (el) el.value = state.duration === 999 ? 'photoshoot' : 'party';
+  }
+ 
+  // Push state.duration → cf-length number input
+  function syncLengthField() {
+    const el = document.getElementById('cf-length');
+    if (el) el.value = state.duration === 999 ? 0.5 : state.duration / 60;
+  }
+ 
+  // Show/hide and clamp the performer stepper
+  function syncPerformerGroup() {
+    const group = document.getElementById('pc-performer-group');
+    if (!group) return;
+    if (state.type === 'impersonator' || state.duration === 999 || state.type === 'kpop' && state.duration === 120) {
+      state.performers = 1;
+      group.style.display = 'none';
+    } else {
+      group.style.display = '';
+      const max = MAX_PERFORMERS[state.type];
+      if (state.performers > max) state.performers = max;
+    }
+    document.getElementById('pc-performer-count').textContent = state.performers;
+    document.getElementById('pc-plural').textContent = state.performers > 1 ? 's' : '';
+  }
+ 
+  // ── Form → Calculator listeners ───────────────────────────
+ 
+  function initFormListeners() {
+ 
+    // cf-length dropdown changed by user → drive the duration buttons
+    const lengthEl = document.getElementById('cf-length');
+    if (lengthEl) {
+      lengthEl.addEventListener('change', function() {
+        const hours = parseFloat(this.value);
+        if (isNaN(hours)) return;
+        // Map selected option to the matching calculator duration
+        // Photoshoot (999) is not reachable from this dropdown — event-type handles that
+        if (hours <= 0.5)    state.duration = 30;
+        else if (hours <= 1) state.duration = 60;
+        else                 state.duration = 120;
+        syncDurationButtons();
+        syncDurationActiveButtons();
+        syncEventTypeField();
+        syncLengthField();
+        syncPerformerGroup();
+        updateCalc();
+      });
+    }
+ 
+    // cf-event-type changed by user → drive the duration buttons
+    const eventTypeEl = document.getElementById('cf-event-type');
+    if (eventTypeEl) {
+      eventTypeEl.addEventListener('change', function() {
+        if (this.value === 'photoshoot') {
+          // Photoshoot is Princess-only — switch type if needed
+          if (state.type !== 'princess') {
+            state.type = 'princess';
+            document.querySelectorAll('[data-group="type"]').forEach(b => {
+              b.classList.toggle('active', b.dataset.val === 'princess');
+            });
+          }
+          state.duration = 999;
+        } else {
+          // Back to party — leave type alone, just exit photoshoot duration
+          if (state.duration === 999) state.duration = 60;
+        }
+        syncDurationButtons();
+        syncDurationActiveButtons();
+        syncLengthField();
+        syncPerformerGroup();
+        updateCalc();
       });
     }
   }
-
+ 
+  // ── Public button handlers ────────────────────────────────
+ 
   window.pcSelect = function(btn) {
     if (btn.disabled) return;
     const group = btn.dataset.group;
@@ -1452,24 +1571,19 @@
     btn.closest('.pc-options').querySelectorAll('.pc-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     state[group] = group === 'duration' ? parseInt(val) : val;
-
-    if (group === 'type') {
-      const performerGroup = document.getElementById('pc-performer-group');
-      if (state.type === 'impersonator') {
-        state.performers = 1;
-        performerGroup.style.display = 'none';
-      } else {
-        performerGroup.style.display = '';
-        const max = MAX_PERFORMERS[state.type];
-        if (state.performers > max) state.performers = max;
+ 
+    if (group === 'type' || group === 'duration') {
+      syncPerformerGroup();
+      if (group === 'type') {
+        syncDurationButtons();
+        syncDurationActiveButtons();
       }
-      document.getElementById('pc-performer-count').textContent = state.performers;
-      document.getElementById('pc-plural').textContent = state.performers > 1 ? 's' : '';
-      syncDurationButtons();
     }
+    syncLengthField();
+    syncEventTypeField();
     updateCalc();
   };
-
+ 
   window.pcStep = function(dir) {
     const max = MAX_PERFORMERS[state.type];
     state.performers = Math.min(max, Math.max(1, state.performers + dir));
@@ -1477,29 +1591,27 @@
     document.getElementById('pc-plural').textContent = state.performers > 1 ? 's' : '';
     updateCalc();
   };
-
+ 
+  // ── Core calc update ──────────────────────────────────────
+ 
   function updateCalc() {
     const { type, duration, performers } = state;
-
+ 
     const key   = `${type}-${performers}-${duration}`;
     const price = PRICES[key];
-    // "call" if explicitly marked, or if key doesn't exist (e.g. 4+ princesses)
     const isCall = price === 'call' || price === undefined;
-
-    // -- Character premium: diff vs princess baseline ------
-    // (only shown when type ≠ princess and price is a real number)
+ 
     const basePrincessKey   = `princess-${performers}-${duration}`;
-    const basePrincessPrice = PRICES[basePrincessKey]; // may be undefined for 4+
+    const basePrincessPrice = PRICES[basePrincessKey];
     const hasPremium = !isCall && type !== 'princess' && typeof basePrincessPrice === 'number';
     const premium    = hasPremium ? price - basePrincessPrice : 0;
-
-    // -- DOM updates ---------------------------------------
+ 
     const totalEl = document.getElementById('pc-total');
     const baseEl  = document.getElementById('pc-base-val');
     const addEl   = document.getElementById('pc-add-performer-val');
     const premEl  = document.getElementById('pc-char-premium-val');
     const perfEL  = document.getElementById('pc-performer-count');
-
+ 
     totalEl.classList.add('updating');
     setTimeout(() => {
       if (isCall) {
@@ -1512,16 +1624,14 @@
       } else {
         totalEl.textContent    = '$' + price.toLocaleString();
         totalEl.style.fontSize = '';
-
+ 
         if (type === 'princess') {
-          // Princess IS the baseline - simple display
           document.getElementById('pc-base-label').textContent = 'Base rate';
           baseEl.textContent = '$' + price;
           addEl.textContent  = '-';
           premEl.textContent = 'Included';
           document.getElementById('pc-add-performer-val').closest('.pc-price-row').style.display = 'none';
         } else if (hasPremium) {
-          // Show princess baseline as "base rate", then premium on top
           document.getElementById('pc-base-label').textContent = 'Princess baseline';
           baseEl.textContent = '$' + basePrincessPrice;
           premEl.textContent = premium > 0 ? '+$' + premium : 'Included';
@@ -1537,27 +1647,25 @@
       }
       totalEl.classList.remove('updating');
     }, 180);
-
-    // -- Labels --------------------------------------------
-    const durLabel  = duration === 30 ? '30 Min' : duration === 60 ? '1 Hour' : '2 Hours';
+ 
+    const durLabel  = duration === 999 ? '30 Min' : duration === 30 ? '30 Min' : duration === 60 ? '1 Hour' : '2 Hours';
     const typeLabel = type === 'princess' ? 'Princess' : type === 'kpop' ? 'K-Pop Star' : 'Impersonator';
     const pkgNames  = PACKAGE_NAMES[type];
-
+ 
     document.getElementById('pc-package-name').textContent =
       (pkgNames && pkgNames[duration]) || typeLabel + ' Package';
     document.getElementById('pc-package-desc').textContent =
       typeLabel + ' · ' + durLabel + ' · ' + performers + ' Performer' + (performers > 1 ? 's' : '');
-
-    // -- Features ------------------------------------------
+ 
     const feats = FEATURES[type] && FEATURES[type][duration];
     const ul    = document.getElementById('pc-features-list');
     ul.innerHTML = feats
       ? feats.map(f => `<li>${f}</li>`).join('')
       : '<li>Contact us to customise your package</li>';
-
-    // -- Sync Length of Stay form field --------------------
-    const lengthField = document.getElementById('cf-length');
-    if (lengthField) lengthField.value = duration / 60;
+ 
+    // Always keep form fields in sync with current state
+    syncLengthField();
+    syncEventTypeField();
   }
 })();
 </script>
@@ -1650,10 +1758,10 @@
       </div>
       <div class="faq-visual">
         <div class="faq-photo">
-          <img src="https://i.ibb.co/Z6whK0cm/Picsart-26-03-14-20-37-39-493.jpg" alt="Cinderella posing for the camera">
+          <img src="https://i.ibb.co/Z6whK0cm/Picsart-26-03-14-20-37-39-493.jpg" alt="Cinderella posing for the camera" loading="lazy">
         </div>
         <div class="faq-photo">
-          <img src="https://i.ibb.co/fYZNSNRL/Picsart-26-03-14-20-51-35-508.jpg" alt="The Snow Queen posing for the camera">
+          <img src="https://i.ibb.co/fYZNSNRL/Picsart-26-03-14-20-51-35-508.jpg" alt="The Snow Queen posing for the camera" loading="lazy">
         </div>
       </div>
     </div>
