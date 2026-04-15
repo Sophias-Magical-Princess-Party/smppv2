@@ -837,6 +837,10 @@
   .form-submit-btn:active {
     transform: translateY(0);
   }
+
+  .gotcha {
+    display: none;
+  }
   @media (max-width: 600px) {
     .form-row { grid-template-columns: 1fr; }
   }
@@ -1329,6 +1333,7 @@
                 <textarea id="cf-message" name="message" placeholder="Please tell us more about your party - indoor or outdoor, your child's age, and any questions you have."></textarea>
               </div>
             </div>
+            <input class="gotcha" type="text" name="_gotcha"/>
 
             <button type="submit" class="form-submit-btn">✦ &nbsp;Send My Request</button>
 
