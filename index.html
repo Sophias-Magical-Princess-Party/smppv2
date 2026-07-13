@@ -845,6 +845,97 @@
     .form-row { grid-template-columns: 1fr; }
   }
 
+  /* -- CONFIRMATION MODAL ---------------------------------- */
+  .cf-modal-overlay {
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(26,17,24,0.55);
+    backdrop-filter: blur(4px);
+    display: flex; align-items: center; justify-content: center;
+    padding: 1.5rem;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.3s var(--ease-silk), visibility 0.3s var(--ease-silk);
+  }
+  .cf-modal-overlay.open {
+    opacity: 1; visibility: visible;
+  }
+  .cf-modal {
+    position: relative;
+    max-width: 480px; width: 100%;
+    background: var(--cream);
+    border: 1px solid rgba(201,169,110,0.35);
+    border-radius: 4px;
+    padding: 2.4rem 2.2rem 2.2rem;
+    box-shadow: 0 24px 64px rgba(26,17,24,0.28);
+    transform: translateY(14px) scale(0.98);
+    transition: transform 0.35s var(--ease-silk);
+  }
+  .cf-modal-overlay.open .cf-modal {
+    transform: translateY(0) scale(1);
+  }
+  .cf-modal-icon {
+    font-family: var(--ff-title);
+    color: var(--gold);
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 0.8rem;
+  }
+  .cf-modal-title {
+    font-family: var(--ff-title);
+    font-size: 1.15rem;
+    color: var(--ink);
+    text-align: center;
+    letter-spacing: 0.02em;
+    margin-bottom: 1.1rem;
+  }
+  .cf-modal-text {
+    font-family: var(--ff-serif);
+    font-size: 1.02rem;
+    line-height: 1.7;
+    color: var(--text);
+    text-align: center;
+    margin-bottom: 1.8rem;
+  }
+  .cf-modal-buttons {
+    display: flex; gap: 0.9rem;
+    flex-wrap: wrap;
+  }
+  .cf-modal-buttons button {
+    flex: 1 1 140px;
+    font-family: var(--ff-sans);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.9rem 1rem;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.25s, color 0.25s, opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .cf-modal-btn-back {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+  }
+  .cf-modal-btn-back:hover {
+    background: var(--gold);
+    color: var(--cream);
+    transform: translateY(-2px);
+  }
+  .cf-modal-btn-confirm {
+    border: none;
+    background: linear-gradient(135deg, var(--rose), var(--lavender));
+    color: white;
+    box-shadow: 0 4px 20px rgba(212,118,138,0.3);
+  }
+  .cf-modal-btn-confirm:hover {
+    opacity: 0.88;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(212,118,138,0.4);
+  }
+  @media (max-width: 480px) {
+    .cf-modal-buttons { flex-direction: column; }
+  }
+
     /* -- MOBILE DRAWER -------------------------------------- */
   .nav-drawer {
     display: none;
@@ -1271,7 +1362,7 @@
         <!-- Contact Form -->
         <div class="contact-form-wrap">
           <span class="contact-form-title">✦ &nbsp;Contact Form</span>
-          <form action="https://formspree.io/f/xgedgzba" method="POST">
+          <form action="https://formspree.io/f/xgedgzba" method="POST" id="cf-booking-form">
 
             <div class="form-row">
               <div class="form-field">
@@ -1338,6 +1429,19 @@
             <button type="submit" class="form-submit-btn">✦ &nbsp;Request Availability</button>
 
           </form>
+
+          <!-- Availability Confirmation Modal -->
+          <div class="cf-modal-overlay" id="cf-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cf-modal-title">
+            <div class="cf-modal">
+              <div class="cf-modal-icon">✦</div>
+              <p class="cf-modal-title" id="cf-modal-title">Before You Submit</p>
+              <p class="cf-modal-text">Submitting a Contact Form is <strong>NOT</strong> a confirmation of booking. We will search for availability per your requests. Please check your email for our response. If all information is agreed upon, you will receive a FULL Booking Form with policies giving further information and instructions.</p>
+              <div class="cf-modal-buttons">
+                <button type="button" class="cf-modal-btn-back" id="cf-modal-back">Go Back</button>
+                <button type="button" class="cf-modal-btn-confirm" id="cf-modal-confirm">I Understand</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1862,6 +1966,48 @@
   drawer.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', closeDrawer);
   });
+
+  // -- Contact form confirmation modal
+  const cfForm          = document.getElementById('cf-booking-form');
+  const cfSubmitBtn     = cfForm ? cfForm.querySelector('.form-submit-btn') : null;
+  const cfModalOverlay  = document.getElementById('cf-modal-overlay');
+  const cfModalBack     = document.getElementById('cf-modal-back');
+  const cfModalConfirm  = document.getElementById('cf-modal-confirm');
+
+  function openCfModal() {
+    cfModalOverlay.classList.add('open');
+  }
+  function closeCfModal() {
+    cfModalOverlay.classList.remove('open');
+  }
+
+  if (cfForm && cfSubmitBtn && cfModalOverlay && cfModalBack && cfModalConfirm) {
+    cfSubmitBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (typeof cfForm.reportValidity === 'function' && !cfForm.reportValidity()) {
+        return; // let the browser show which required fields are missing
+      }
+      openCfModal();
+    });
+
+    cfModalBack.addEventListener('click', closeCfModal);
+
+    cfModalConfirm.addEventListener('click', () => {
+      closeCfModal();
+      cfForm.submit();
+    });
+
+    // Close modal when clicking the overlay backdrop (acts like Go Back)
+    cfModalOverlay.addEventListener('click', (e) => {
+      if (e.target === cfModalOverlay) closeCfModal();
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && cfModalOverlay.classList.contains('open')) closeCfModal();
+    });
+  }
 </script>
 </body>
 </html>
