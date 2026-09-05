@@ -460,7 +460,7 @@
   .pricing-calculator {
     margin-top: 3.5rem;
     display: grid;
-    grid-template-columns: 1fr 340px;
+    grid-template-columns: 1fr;
     gap: 2.5rem;
     align-items: start;
   }
@@ -936,6 +936,49 @@
     .cf-modal-buttons { flex-direction: column; }
   }
 
+  /* -- FORM TOGGLE (Post Party / Performer Profile) -------- */
+  .form-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin: 0 auto 2.6rem;
+    max-width: 560px;
+    flex-wrap: wrap;
+  }
+  .form-toggle-btn {
+    flex: 1 1 220px;
+    font-family: var(--ff-sans);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.9rem 1.4rem;
+    border: 1px solid rgba(201,169,110,0.5);
+    background: transparent;
+    color: var(--ink-soft);
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+  }
+  .form-toggle-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+  .form-toggle-btn.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--cream);
+  }
+  .form-panel {
+    display: none;
+  }
+  .form-panel.active {
+    display: block;
+  }
+  @media (max-width: 600px) {
+    .form-toggle { flex-direction: column; }
+  }
+
     /* -- MOBILE DRAWER -------------------------------------- */
   .nav-drawer {
     display: none;
@@ -1116,7 +1159,13 @@
 <!-- -- PRICING ---------------------------------------------- -->
 <section class="section" id="pricing">
   <div>
-  <div class="section-inner"  id="book">
+
+  <div class="form-toggle" role="tablist" aria-label="Choose a form">
+    <button type="button" class="form-toggle-btn active" data-target="post-party" role="tab" aria-selected="true" id="tab-post-party">Post Party Form</button>
+    <button type="button" class="form-toggle-btn" data-target="profile" role="tab" aria-selected="false" id="tab-profile">Performer Profile Form</button>
+  </div>
+
+  <div class="section-inner form-panel active" id="book" data-panel="post-party">
     <h2 class="section-heading reveal">Post Party Form</h2>
     <p class="section-body reveal">This form is the ensure quality control and hold each other accountable. Pay will be distributed once the form is completed and supplies are returned. These forms may affect scores.</p>
 
@@ -1125,74 +1174,74 @@
         <!-- Contact Form -->
         <div class="contact-form-wrap">
           <span class="contact-form-title">✦ &nbsp;Post Party Form</span>
-          <form action="https://formspree.io/f/xqpklwkb" method="POST" id="cf-booking-form">
+          <form action="https://formspree.io/f/xqpklwkb" method="POST" id="post-party-form">
 
             <div class="form-row">
               <div class="form-field">
-                <label for="cf-name">Your Name</label>
-                <input type="text" id="cf-name" name="name" placeholder="Jane Smith" required>
+                <label for="pp-name">Your Name</label>
+                <input type="text" id="pp-name" name="name" placeholder="Jane Smith" required>
               </div>
             </div>
 
             <div class="form-row single">
               <div class="form-field">
-                <label for="cf-character">What was your role?</label>
-                <input type="text" id="cf-character" name="role" placeholder="Performer or Attendant" required>
+                <label for="pp-role">What was your role?</label>
+                <input type="text" id="pp-role" name="role" placeholder="Performer or Attendant" required>
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-field">
-                <label for="cf-date">Date of Party</label>
-                <input type="date" id="cf-date" name="date" required>
+                <label for="pp-date">Date of Party</label>
+                <input type="date" id="pp-date" name="date" required>
               </div>
               <div class="form-field">
-                <label for="cf-time">Time of Party</label>
-                <input type="time" id="cf-time" name="time" required>
+                <label for="pp-time">Time of Party</label>
+                <input type="time" id="pp-time" name="time" required>
               </div>
               <div class="form-field">
-                <label for="cf-character">Character(s)</label>
-                <input type="text" id="cf-character" name="character" placeholder="" required>
-              </div>
-            </div>
-
-            <div class="form-row single">
-              <div class="form-field">
-                <label for="cf-message">How did the client feel about the party?</label>
-                <textarea id="cf-message" name="client-feel" placeholder="In your opinion, no wrong answers" required></textarea>
-              </div>
-            </div>
-            <div class="form-row single">
-              <div class="form-field">
-                <label for="cf-message">How did the party go?</label>
-                <textarea id="cf-message" name="party-vibe" placeholder="In your opinion, no wrong answers" required></textarea>
-              </div>
-            </div>
-            <div class="form-row single">
-              <div class="form-field">
-                <label for="cf-message">ATTENDANT / MULTI PERFORMER ONLY - Did the performer(s) perform at their best? Please include timeliness, appearance and character work.</label>
-                <textarea id="cf-message" name="attendant-multi-feel" placeholder="In your opinion, no wrong answers"></textarea>
+                <label for="pp-character">Character(s)</label>
+                <input type="text" id="pp-character" name="character" placeholder="" required>
               </div>
             </div>
 
             <div class="form-row single">
               <div class="form-field">
-                <label for="cf-message">PERFORMERS ONLY - Did your attendant perform their job in a helpful manner? Please include timeliness, appearance, and attendant duties.</label>
-                <textarea id="cf-message" name="performer-feel" placeholder="Please tell us more about your party - indoor or outdoor, your child's age, and any questions you have."></textarea>
+                <label for="pp-client-feel">How did the client feel about the party?</label>
+                <textarea id="pp-client-feel" name="client-feel" placeholder="In your opinion, no wrong answers" required></textarea>
+              </div>
+            </div>
+            <div class="form-row single">
+              <div class="form-field">
+                <label for="pp-party-vibe">How did the party go?</label>
+                <textarea id="pp-party-vibe" name="party-vibe" placeholder="In your opinion, no wrong answers" required></textarea>
+              </div>
+            </div>
+            <div class="form-row single">
+              <div class="form-field">
+                <label for="pp-attendant-multi-feel">ATTENDANT / MULTI PERFORMER ONLY - Did the performer(s) perform at their best? Please include timeliness, appearance and character work.</label>
+                <textarea id="pp-attendant-multi-feel" name="attendant-multi-feel" placeholder="In your opinion, no wrong answers"></textarea>
               </div>
             </div>
 
             <div class="form-row single">
               <div class="form-field">
-                <label for="cf-character">Any repairs or maintenance required for costumes, accessories, wigs or supplies?</label>
-                <input type="text" id="cf-character" name="repairs-comment" placeholder="Please be detailed" required>
+                <label for="pp-performer-feel">PERFORMERS ONLY - Did your attendant perform their job in a helpful manner? Please include timeliness, appearance, and attendant duties.</label>
+                <textarea id="pp-performer-feel" name="performer-feel" placeholder="Please tell us more about your party - indoor or outdoor, your child's age, and any questions you have."></textarea>
+              </div>
+            </div>
+
+            <div class="form-row single">
+              <div class="form-field">
+                <label for="pp-repairs-comment">Any repairs or maintenance required for costumes, accessories, wigs or supplies?</label>
+                <input type="text" id="pp-repairs-comment" name="repairs-comment" placeholder="Please be detailed" required>
               </div>
             </div>
             
             <div class="form-row single">
               <div class="form-field">
-                <label for="cf-character">Add any additional comments here:</label>
-                <input type="text" id="cf-character" name="comments">
+                <label for="pp-comments">Add any additional comments here:</label>
+                <input type="text" id="pp-comments" name="comments">
               </div>
             </div>
             <input class="gotcha" type="text" name="_gotcha"/>
@@ -1207,7 +1256,7 @@
 
   </div><!-- /.post party -->
 
-  <div class="section-inner"  id="book">
+  <div class="section-inner form-panel" id="book-profile" data-panel="profile">
     <h2 class="section-heading reveal">Performer Profile Form</h2>
     <p class="section-body reveal">Fill this out if you are new or if your answers have changed. Please review your profile every once in a while to verify your info is up to date.</p>
 
@@ -1216,117 +1265,117 @@
         <!-- Contact Form -->
         <div class="contact-form-wrap">
           <span class="contact-form-title">✦ &nbsp;Performer Profile Form</span>
-          <form action="https://formspree.io/f/xaeybajq" method="POST" id="cf-booking-form">
+          <form action="https://formspree.io/f/xaeybajq" method="POST" id="performer-profile-form">
 
             <div class="form-row">
               <div class="form-field">
-                <label for="cf-name">Your Full Name</label>
-                <input type="text" id="cf-name" name="name" placeholder="Jane Q. Smith" required>
+                <label for="prof-name">Your Full Name</label>
+                <input type="text" id="prof-name" name="name" placeholder="Jane Q. Smith" required>
               </div>
             </div>
             <div class="form-row single">
               <div class="form-field">
-                <label for="cf-date">Address</label>
-                <input type="text" id="cf-date" name="address" required>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-field">
-                <label for="cf-date">Your email</label>
-                <input type="text" id="cf-date" name="email" required>
-              </div>
-              <div class="form-field">
-                <label for="cf-date">Your phone number</label>
-                <input type="text" id="cf-date" name="phone" required>
-              </div>
-            </div>
-
-            <div class="form-row single">
-              <div class="form-field">
-                <label for="cf-character">Pronouns</label>
-                <input type="text" id="cf-character" name="pronouns">
-              </div>
-            </div>
-
-            <div class="form-row single">
-              <div class="form-field">
-                <label for="cf-date">Birthday</label>
-                <input type="date" id="cf-date" name="birthday" required>
-              </div>
-            </div>
-
-            <div class="form-row single">
-              <div class="form-field">
-                <label for="cf-message">Describe any piercings, tattoos, and any and all body mods</label>
-                <textarea id="cf-message" name="body-mods" required></textarea>
+                <label for="prof-address">Address</label>
+                <input type="text" id="prof-address" name="address" required>
               </div>
             </div>
             <div class="form-row">
               <div class="form-field">
-                <label for="cf-character">Height</label>
-                <input type="text" id="cf-character" name="height" required>
+                <label for="prof-email">Your email</label>
+                <input type="text" id="prof-email" name="email" required>
               </div>
               <div class="form-field">
-                <label for="cf-character">Dress Size</label>
-                <input type="text" id="cf-character" name="dress size" required>
-              </div>
-              <div class="form-field">
-                <label for="cf-character">Bust, Waist, Hip Measurements</label>
-                <input type="text" id="cf-character" name="measurements" placeholder="In inches" required>
-              </div>
-              <div class="form-field">
-                <label for="cf-character">Shoe size</label>
-                <input type="text" id="cf-character" name="shoe size" required>
-              </div>
-              <div class="form-field">
-                <label for="cf-character">Eye Color</label>
-                <input type="text" id="cf-character" name="eye color" required>
-              </div>
-              <div class="form-field">
-                <label for="cf-character">Ethnicity</label>
-                <input type="text" id="cf-character" name="ethnicity" required>
-              </div>
-              <div class="form-field">
-                <label for="cf-character">List any secondary languages spoken:</label>
-                <input type="text" id="cf-character" name="languages">
+                <label for="prof-phone">Your phone number</label>
+                <input type="text" id="prof-phone" name="phone" required>
               </div>
             </div>
 
             <div class="form-row single">
               <div class="form-field">
-                <label for="cf-message">Do you own any character shoes?</label>
-                <textarea id="cf-message" name="character shoes" placeholder="Please specify the color and height of your character shoe(s)." required></textarea>
+                <label for="prof-pronouns">Pronouns</label>
+                <input type="text" id="prof-pronouns" name="pronouns">
+              </div>
+            </div>
+
+            <div class="form-row single">
+              <div class="form-field">
+                <label for="prof-birthday">Birthday</label>
+                <input type="date" id="prof-birthday" name="birthday" required>
+              </div>
+            </div>
+
+            <div class="form-row single">
+              <div class="form-field">
+                <label for="prof-body-mods">Describe any piercings, tattoos, and any and all body mods</label>
+                <textarea id="prof-body-mods" name="body-mods" required></textarea>
               </div>
             </div>
             <div class="form-row">
               <div class="form-field">
-                <label for="cf-character">Do you consider yourself a singer?</label>
-                <input type="text" id="cf-character" name="singer" required>
+                <label for="prof-height">Height</label>
+                <input type="text" id="prof-height" name="height" required>
               </div>
               <div class="form-field">
-                <label for="cf-character">Relevant allergies or medical conditions you wish to disclose</label>
-                <input type="text" id="cf-character" name="medical conditions" required>
+                <label for="prof-dress-size">Dress Size</label>
+                <input type="text" id="prof-dress-size" name="dress size" required>
+              </div>
+              <div class="form-field">
+                <label for="prof-measurements">Bust, Waist, Hip Measurements</label>
+                <input type="text" id="prof-measurements" name="measurements" placeholder="In inches" required>
+              </div>
+              <div class="form-field">
+                <label for="prof-shoe-size">Shoe size</label>
+                <input type="text" id="prof-shoe-size" name="shoe size" required>
+              </div>
+              <div class="form-field">
+                <label for="prof-eye-color">Eye Color</label>
+                <input type="text" id="prof-eye-color" name="eye color" required>
+              </div>
+              <div class="form-field">
+                <label for="prof-ethnicity">Ethnicity</label>
+                <input type="text" id="prof-ethnicity" name="ethnicity" required>
+              </div>
+              <div class="form-field">
+                <label for="prof-languages">List any secondary languages spoken:</label>
+                <input type="text" id="prof-languages" name="languages">
               </div>
             </div>
 
             <div class="form-row single">
               <div class="form-field">
-                <label for="cf-message">Website Bio.</label>
-                <textarea id="cf-message" name="website bio" placeholder="If you don't need a new bio, put your favorite color" required></textarea>
+                <label for="prof-character-shoes">Do you own any character shoes?</label>
+                <textarea id="prof-character-shoes" name="character shoes" placeholder="Please specify the color and height of your character shoe(s)." required></textarea>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="prof-singer">Do you consider yourself a singer?</label>
+                <input type="text" id="prof-singer" name="singer" required>
+              </div>
+              <div class="form-field">
+                <label for="prof-medical-conditions">Relevant allergies or medical conditions you wish to disclose</label>
+                <input type="text" id="prof-medical-conditions" name="medical conditions" required>
               </div>
             </div>
 
             <div class="form-row single">
               <div class="form-field">
-                <label for="cf-character">Do you already have a background check?</label>
-                <input type="text" id="cf-character" name="background check" placeholder="Please be detailed" required>
+                <label for="prof-website-bio">Website Bio.</label>
+                <textarea id="prof-website-bio" name="website bio" placeholder="If you don't need a new bio, put your favorite color" required></textarea>
+              </div>
+            </div>
+
+            <div class="form-row single">
+              <div class="form-field">
+                <label for="prof-background-check">Do you already have a background check?</label>
+                <input type="text" id="prof-background-check" name="background check" placeholder="Please be detailed" required>
               </div>
             </div>
             
             <div class="form-row single">
               <div class="form-field">
-                <label for="cf-character">List any virtual payment options below:</label>
-                <input type="text" id="cf-character" name="virtual payment" placeholder="Must have PayPal or Venmo" required>
+                <label for="prof-virtual-payment">List any virtual payment options below:</label>
+                <input type="text" id="prof-virtual-payment" name="virtual payment" placeholder="Must have PayPal or Venmo" required>
               </div>
             </div>
             <input class="gotcha" type="text" name="_gotcha"/>
@@ -1433,6 +1482,24 @@
   // Close drawer when a link is clicked
   drawer.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', closeDrawer);
+  });
+
+  // -- Form toggle (Post Party / Performer Profile)
+  const formToggleBtns = document.querySelectorAll('.form-toggle-btn');
+  const formPanels     = document.querySelectorAll('.form-panel');
+
+  formToggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.getAttribute('data-target');
+
+      formToggleBtns.forEach(b => {
+        b.classList.toggle('active', b === btn);
+        b.setAttribute('aria-selected', b === btn ? 'true' : 'false');
+      });
+      formPanels.forEach(panel => {
+        panel.classList.toggle('active', panel.getAttribute('data-panel') === target);
+      });
+    });
   });
 
   // -- Contact form confirmation modal
