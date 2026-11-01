@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cinzel:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/site.css" />
 <style>
 
 
@@ -46,20 +47,6 @@
   --highlight-glow:    rgba(201,169,110,0.28); /* card glow shadow   */
 }
 
-/* -- RESET ------------------------------------------------ */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--cream);
-  color: var(--text);
-  font-family: var(--ff-serif);
-  font-size: 18px;
-  line-height: 1.7;
-  overflow-x: hidden;
-}
-img { display: block; max-width: 100%; }
-a   { color: inherit; text-decoration: none; }
-
 /* -- NAVIGATION (identical to template) -------------------- */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
@@ -68,39 +55,6 @@ nav {
   background: transparent;
   transition: background 0.4s var(--ease-silk), box-shadow 0.4s;
 }
-nav.scrolled {
-  background: rgba(250,246,240,0.96);
-  box-shadow: 0 1px 24px rgba(26,17,24,0.08);
-  backdrop-filter: blur(8px);
-}
-.nav-logo {
-  font-family: var(--ff-title); font-size: 1rem;
-  letter-spacing: 0.15em; color: var(--ink);
-  display: flex; align-items: center; gap: 0.6rem;
-}
-.nav-logo .crown { font-size: 1.2rem; }
-.nav-links {
-  display: flex; gap: 2.4rem; list-style: none;
-  font-family: var(--ff-sans); font-size: 0.75rem; font-weight: 400;
-  letter-spacing: 0.18em; text-transform: uppercase;
-}
-.nav-links a {
-  color: var(--ink-soft); position: relative; transition: color 0.25s;
-}
-.nav-links a::after {
-  content:''; position: absolute; left:0; bottom:-3px; width:0; height:1px;
-  background: var(--gold); transition: width 0.3s var(--ease-silk);
-}
-.nav-links a:hover { color: var(--gold); }
-.nav-links a:hover::after { width: 100%; }
-.nav-cta {
-  font-family: var(--ff-sans); font-size: 0.75rem; font-weight: 500;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  padding: 0.65rem 1.6rem;
-  border: 1px solid var(--gold); color: var(--gold);
-  transition: background 0.3s, color 0.3s; border-radius: 2px;
-}
-.nav-cta:hover { background: var(--gold); color: var(--cream); }
 
 /* -- PAGE HERO ---------------------------------------------- */
 .page-hero {
@@ -163,25 +117,7 @@ nav.scrolled {
   color: var(--text); max-width: 520px; line-height: 1.7;
   opacity: 0; animation: fadeUp 0.9s 0.5s var(--ease-silk) forwards;
 }
-
-/* -- GOLD RULE DIVIDER -------------------------------------- */
-.gold-rule {
-  display: flex; align-items: center; gap: 1rem;
-  color: var(--gold); font-family: var(--ff-title); letter-spacing: 0.25em;
-  font-size: 0.6rem; text-transform: uppercase;
-}
-.gold-rule::before, .gold-rule::after {
-  content:''; flex:1; height:1px;
-  background: linear-gradient(90deg, transparent, var(--gold-lt), transparent);
-}
-
-/* -- SECTION WRAPPERS --------------------------------------- */
-.section       { padding: 7rem 2rem; }
 .section-inner { max-width: 1200px; margin: 0 auto; }
-.section-label {
-  font-family: var(--ff-sans); font-size: 0.6rem; letter-spacing: 0.35em;
-  text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block;
-}
 .section-heading {
   font-family: var(--ff-title);
   font-size: clamp(1.8rem, 4vw, 3rem);
@@ -225,10 +161,6 @@ nav.scrolled {
   cursor: pointer;
   box-shadow: 0 4px 16px rgba(26,17,24,0.08);
   transition: transform 0.4s var(--ease-silk), box-shadow 0.4s;
-}
-.char-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 56px rgba(26,17,24,0.15);
 }
 
 /* gradient overlay so text is always readable */
@@ -537,7 +469,6 @@ nav.scrolled {
 
 /* -- SCROLL REVEAL ------------------------------------------ */
 .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s var(--ease-silk), transform 0.7s var(--ease-silk); }
-.reveal.visible { opacity: 1; transform: none; }
 
 /* -- ANIMATIONS --------------------------------------------- */
 @keyframes fadeUp {
@@ -558,17 +489,6 @@ nav.scrolled {
   font-family: var(--ff-sans); font-size: 0.7rem;
   letter-spacing: 0.06em; color: var(--text);
   line-height: 1.6;
-}
-
-/* -- CTA BAND ----------------------------------------------- */
-.cta-band {
-  background: linear-gradient(135deg, var(--rose) 0%, var(--lavender) 100%);
-  padding: 6rem 2rem; text-align: center; position: relative; overflow: hidden;
-}
-.cta-band::before {
-  content:''; position: absolute; inset:0;
-  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
-  opacity: 0.5;
 }
 .cta-band .section-label { color: rgba(255,255,255,0.75); position: relative; }
 .cta-band .section-heading { color: white; position: relative; max-width: 640px; margin: 0.8rem auto 0; }
@@ -607,6 +527,7 @@ footer {
   letter-spacing: 0.12em; color: white; margin-bottom: 1rem;
 }
 .footer-brand-tag { font-size: 0.85rem; line-height: 1.7; max-width: 300px; }
+.footer-socials { line-height: 1.7; color: white; margin-top: 0.8rem; }
 .footer-col-title {
   font-family: var(--ff-sans); font-size: 0.6rem;
   letter-spacing: 0.3em; text-transform: uppercase;
@@ -622,110 +543,6 @@ footer {
   gap: 1rem; font-family: var(--ff-sans); font-size: 0.65rem; letter-spacing: 0.06em;
 }
 .footer-disclaimer { max-width: 480px; color: rgba(255,255,255,0.3); }
-
-  /* -- MOBILE DRAWER -------------------------------------- */
-  .nav-drawer {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 200;
-    pointer-events: none;
-  }
-  .nav-drawer-backdrop {
-    position: absolute;
-    inset: 0;
-    background: rgba(26,17,24,0.45);
-    opacity: 0;
-    transition: opacity 0.35s var(--ease-silk);
-    backdrop-filter: blur(2px);
-  }
-  .nav-drawer-panel {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: min(320px, 85vw);
-    height: 100%;
-    background: var(--cream);
-    padding: 5.5rem 2.4rem 2.4rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    transform: translateX(100%);
-    transition: transform 0.38s var(--ease-silk);
-    box-shadow: -8px 0 40px rgba(26,17,24,0.12);
-    overflow-y: auto;
-  }
-  .nav-drawer.open {
-    pointer-events: all;
-  }
-  .nav-drawer.open .nav-drawer-backdrop { opacity: 1; }
-  .nav-drawer.open .nav-drawer-panel { transform: translateX(0); }
- 
-  .nav-drawer-links {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    border-top: 1px solid rgba(201,169,110,0.2);
-  }
-  .nav-drawer-links li {
-    border-bottom: 1px solid rgba(201,169,110,0.2);
-  }
-  .nav-drawer-links a {
-    display: block;
-    padding: 1.1rem 0;
-    font-family: var(--ff-sans);
-    font-size: 0.8rem;
-    font-weight: 400;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    transition: color 0.2s, padding-left 0.2s;
-  }
-  .nav-drawer-links a:hover { color: var(--gold); padding-left: 0.5rem; }
-  .nav-drawer-cta {
-    margin-top: 2rem;
-    display: block;
-    text-align: center;
-    font-family: var(--ff-sans);
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    padding: 0.9rem 1.6rem;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    border-radius: 2px;
-    transition: background 0.3s, color 0.3s;
-  }
-  .nav-drawer-cta:hover { background: var(--gold); color: var(--cream); }
-
-    .nav-hamburger {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    width: 40px;
-    height: 40px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
-    z-index: 201;
-    flex-shrink: 0;
-  }
-  .nav-hamburger span {
-    display: block;
-    width: 22px;
-    height: 1.5px;
-    background: var(--ink);
-    border-radius: 2px;
-    transition: transform 0.35s var(--ease-silk), opacity 0.25s, width 0.3s var(--ease-silk);
-    transform-origin: center;
-  }
-  .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-  .nav-hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
-  .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
 /* ------------------------------------------------------------
    RESPONSIVE
@@ -759,7 +576,6 @@ footer {
 }
 
 </style>
-<script src="https://kit.fontawesome.com/6ddc09e848.js" crossorigin="anonymous"></script>
 <link rel="icon" type="image/x-icon" href="/favicon-16x16.png">
 </head>
 <body>
@@ -846,7 +662,7 @@ footer {
              {"label":"Winter Ice Gown","sub":"Cold Weather Look","img":"../assets/IMG-0616.webp","winter":true,"badge":"Winter"}
            ]'>
         <!-- Replace the src below with your imgbb direct-link URL -->
-        <img class="char-photo" src="../assets/Picsart-24-02-24-20-38-44-417.webp" alt="The Snow Queen" loading="lazy" onerror="this.style.display='none'">
+        <img width="966" height="1035" decoding="async" class="char-photo" src="../assets/Picsart-24-02-24-20-38-44-417.webp" alt="The Snow Queen" loading="lazy" onerror="this.style.display='none'">
         <span class="char-outfit-badge">3 Looks</span>
         <div class="char-view-cue">View Photos</div>
         <div class="char-info">
@@ -865,7 +681,7 @@ footer {
              {"label":"How It&apos;s Done","sub":"Signature Look","img":"../assets/EA2233-B3-9-AEF-4016-9-B57-26-D878600-A46.webp","featured":true,"badge":"Most Requested"},
              {"label":"Golden","sub":"Alternate","img":"../assets/kpop-golden.webp"}
            ]'>
-        <img class="char-photo" src="../assets/EA2233-B3-9-AEF-4016-9-B57-26-D878600-A46.webp" alt="K-Pop" loading="lazy" onerror="this.style.display='none'">
+        <img width="1000" height="1000" decoding="async" class="char-photo" src="../assets/EA2233-B3-9-AEF-4016-9-B57-26-D878600-A46.webp" alt="K-Pop" loading="lazy" onerror="this.style.display='none'">
         <span class="char-outfit-badge">2 Looks</span>
         <div class="char-view-cue">View Photos</div>
         <div class="char-info">
@@ -886,7 +702,7 @@ footer {
              {"label":"Spring Gown","sub":"Seasonal Look","img":"../assets/87-CC705-A-7-D76-4-D7-B-AF68-74-A74143755-B.webp"},
              {"label":"Winter Gown","sub":"🥶🤫","img":"../assets/Screenshot-20260408-134425-Instagram.webp","winter":true,"badge":"Winter"}
            ]'>
-        <img class="char-photo" src="../assets/beauty-princess-26.webp" alt="The Beauty Princess" loading="lazy" onerror="this.style.display='none'">
+        <img width="933" height="1400" decoding="async" class="char-photo" src="../assets/beauty-princess-26.webp" alt="The Beauty Princess" loading="lazy" onerror="this.style.display='none'">
         <span class="char-outfit-badge">4 Looks</span>
         <div class="char-view-cue">View Photos</div>
         <div class="char-info">
@@ -915,7 +731,7 @@ footer {
              {"label":"Fearless","sub":"Signature Performance","img":"../assets/Picsart-24-09-18-15-02-44-633.webp"},
              {"label":"The Man","sub":"Signature Performance","img":"../assets/Picsart-24-09-18-00-31-18-378.webp"}
            ]'>
-        <img class="char-photo" src="../assets/midnights.webp" alt="Pop Royalty" loading="lazy" onerror="this.style.display='none'">
+        <img width="894" height="1119" decoding="async" class="char-photo" src="../assets/midnights.webp" alt="Pop Royalty" loading="lazy" onerror="this.style.display='none'">
         <span class="char-outfit-badge">15+ Looks</span>
         <span class="char-badge char-badge--imperson">Impersonator</span>
         <div class="char-view-cue">View Photos</div>
@@ -933,11 +749,11 @@ footer {
            data-desc=""
            data-outfits='[
              {"label":"Travel Dress","sub":"Signature Look","img":"../assets/IMG-0615.webp","featured":true,"badge":"Most Popular"},
-             {"label":"Coronation Gown","sub":"Signature Look","img":"../assets/Picsart_26-08-16_12-20-41-267.jpg"},
+             {"label":"Coronation Gown","sub":"Signature Look","img":"../assets/Picsart_26-08-16_12-20-41-267.webp"},
              {"label":"Queen Dress","sub":"Signature Look","img":"../assets/sequel-queen.webp"},
-             {"label":"Winter Dress","sub":"Cold Weather Look","img":"../assets/winter-snow-princess.jpg","winter":true,"badge":"Winter"}
+             {"label":"Winter Dress","sub":"Cold Weather Look","img":"../assets/winter-snow-princess.webp","winter":true,"badge":"Winter"}
            ]'>
-        <img class="char-photo" src="../assets/IMG-0615.webp" alt="The Snow Princess" loading="lazy" onerror="this.style.display='none'">
+        <img width="868" height="1152" decoding="async" class="char-photo" src="../assets/IMG-0615.webp" alt="The Snow Princess" loading="lazy" onerror="this.style.display='none'">
         <span class="char-outfit-badge">4 Looks</span>
         <div class="char-view-cue">View Photos</div>
         <div class="char-info">
@@ -957,7 +773,7 @@ footer {
              {"label":"Ocean Adventurer","sub":"Sequel Look","img":"../assets/polynesian-sequel.webp"},
              {"label":"Winter Look","sub":"Cold Weather Look","img":"../assets/placeholder10a.webp"}
            ]'>
-        <img class="char-photo" src="../assets/Picsart-25-10-15-20-10-10-236.webp" alt="The Polynesian Princess" loading="lazy" onerror="this.style.display='none'">
+        <img width="903" height="1108" decoding="async" class="char-photo" src="../assets/Picsart-25-10-15-20-10-10-236.webp" alt="The Polynesian Princess" loading="lazy" onerror="this.style.display='none'">
         <span class="char-outfit-badge">3 Looks</span>
         <div class="char-view-cue">View Photos</div>
         <div class="char-info">
@@ -975,7 +791,7 @@ footer {
            data-outfits='[
              {"label":"Classic Gown","sub":"Signature Look","img":"../assets/E462346-C-C743-4257-B2-C4-C9-E55-F47-A6-DB.webp","featured":true,"badge":"Most Popular"}
            ]'>
-        <img class="char-photo" src="../assets/E462346-C-C743-4257-B2-C4-C9-E55-F47-A6-DB.webp" alt="Rapunzel" loading="lazy" onerror="this.style.display='none'">
+        <img width="1042" height="960" decoding="async" class="char-photo" src="../assets/E462346-C-C743-4257-B2-C4-C9-E55-F47-A6-DB.webp" alt="Rapunzel" loading="lazy" onerror="this.style.display='none'">
         <div class="char-view-cue">View Photos</div>
         <div class="char-info">
           <span class="char-name">Rapunzel</span>
@@ -993,7 +809,7 @@ footer {
              {"label":"Classic Gown","sub":"Signature Look","img":"../assets/DSCF3210.webp","featured":true,"badge":"Most Popular"},
              {"label":"Winter Gown","sub":"🥶🤫","img":"../assets/Screenshot-20260408-134425-Instagram.webp","winter":true,"badge":"Winter"}
            ]'>
-        <img class="char-photo" src="../assets/DSCF3210.webp" alt="Cinderella" loading="lazy" onerror="this.style.display='none'">
+        <img width="1225" height="816" decoding="async" class="char-photo" src="../assets/DSCF3210.webp" alt="Cinderella" loading="lazy" onerror="this.style.display='none'">
         <span class="char-outfit-badge">2 Looks</span>
         <div class="char-view-cue">View Photos</div>
         <div class="char-info">
@@ -1012,10 +828,10 @@ footer {
              {"label":"Parks Gown","sub":"Signature Look","img":"../assets/Picsart-25-10-06-15-47-28-011.webp","featured":true,"badge":"Fan Favorite"},
              {"label":"Kiss the Girl Dress","sub":"Signature Look","img":"../assets/kiss-the-girl-dress.webp"},
              {"label":"Parks Tail","sub":"Dry Land Only","img":"../assets/Pics-Art-03-25-01-58-53.webp"},
-             {"label":"Mermaid Tail","sub":"Water Safe","img":"../assets/Picsart_26-08-16_18-26-29-969.jpg"},
+             {"label":"Mermaid Tail","sub":"Water Safe","img":"../assets/Picsart_26-08-16_18-26-29-969.webp"},
              {"label":"Winter Look","sub":"Cold Weather Look","img":"../assets/placeholder10a.webp"}
            ]'>
-        <img class="char-photo" src="../assets/Picsart-25-10-06-15-47-28-011.webp" alt="The Little Mermaid" loading="lazy" onerror="this.style.display='none'">
+        <img width="816" height="1225" decoding="async" class="char-photo" src="../assets/Picsart-25-10-06-15-47-28-011.webp" alt="The Little Mermaid" loading="lazy" onerror="this.style.display='none'">
         <span class="char-outfit-badge">4 Looks</span>
         <div class="char-view-cue">View Photos</div>
         <div class="char-info">
@@ -1033,7 +849,7 @@ footer {
            data-outfits='[
              {"label":"Classic Dress","sub":"Signature Look","img":"../assets/Scottish-Princess2.webp","featured":true,"badge":"Fan Favorite"}
            ]'>
-        <img class="char-photo" src="../assets/Scottish-Princess2.webp" alt="The Scottish Princess" loading="lazy" onerror="this.style.display='none'">
+        <img width="1002" height="998" decoding="async" class="char-photo" src="../assets/Scottish-Princess2.webp" alt="The Scottish Princess" loading="lazy" onerror="this.style.display='none'">
         <div class="char-view-cue">View Photos</div>
         <div class="char-info">
           <span class="char-name">The Scottish Princess</span>
@@ -1052,7 +868,7 @@ footer {
              {"label":"Parks Dress","sub":"Signature Look","img":"../assets/FB-IMG-1637330503266.webp"},
              {"label":"Winter Look","sub":"Cold Weather Look","img":"../assets/placeholder10a.webp"}
            ]'>
-        <img class="char-photo" src="../assets/sleeping_beauty.webp" alt="Sleeping Beauty" loading="lazy" onerror="this.style.display='none'">
+        <img width="1018" height="1400" decoding="async" class="char-photo" src="../assets/sleeping_beauty.webp" alt="Sleeping Beauty" loading="lazy" onerror="this.style.display='none'">
         <span class="char-badge char-badge--new">New Outfit!</span>
         <span class="char-outfit-badge">3 Looks</span>
         <div class="char-view-cue">View Photos</div>
@@ -1069,11 +885,11 @@ footer {
            data-type="Princess Character"
            data-desc=""
            data-outfits='[
-             {"label":"Classic Dress","sub":"Signature Look","img":"../assets/Picsart_26-08-13_19-26-51-019.jpg","featured":true,"badge":"Most Popular"},
+             {"label":"Classic Dress","sub":"Signature Look","img":"../assets/Picsart_26-08-13_19-26-51-019.webp","featured":true,"badge":"Most Popular"},
              {"label":"Seasonal Dress","sub":"Signature Look","img":"../assets/Pastel-Snow-SMPP.webp"},
              {"label":"Winter Dress","sub":"Winter Princess","img":"../assets/Screenshot-20260408-132035-Instagram.webp","winter":true, "badge":"Winter"}
            ]'>
-        <img class="char-photo" src="../assets/Picsart_26-08-13_19-26-51-019.jpg" alt="Snow White" loading="lazy" onerror="this.style.display='none'">
+        <img width="1050" height="1400" decoding="async" class="char-photo" src="../assets/Picsart_26-08-13_19-26-51-019.webp" alt="Snow White" loading="lazy" onerror="this.style.display='none'">
         <span class="char-badge char-badge--new">New Outfit!</span>
         <span class="char-outfit-badge">3 Looks</span>
         <div class="char-view-cue">View Photos</div>
@@ -1092,7 +908,7 @@ footer {
            data-outfits='[
              {"label":"Classic Ballgown","sub":"Signature Look","img":"../assets/Bayou-Princess2.webp","featured":true,"badge":"New Look"}
            ]'>
-        <img class="char-photo" src="../assets/Bayou-Princess2.webp" alt="Bayou Princess" loading="lazy" onerror="this.style.display='none'">
+        <img width="1000" height="1000" decoding="async" class="char-photo" src="../assets/Bayou-Princess2.webp" alt="Bayou Princess" loading="lazy" onerror="this.style.display='none'">
         <div class="char-view-cue">View Photos</div>
         <div class="char-info">
           <span class="char-name">Bayou Princess</span>
@@ -1109,7 +925,7 @@ footer {
            data-outfits='[
              {"label":"Classic Gown","sub":"Signature Look","img":"../assets/DSF1945.webp","featured":true,"badge":"Most Popular"}
            ]'>
-        <img class="char-photo" src="../assets/DSF1945.webp" alt="Latina Princess" loading="lazy" onerror="this.style.display='none'">
+        <img width="1237" height="809" decoding="async" class="char-photo" src="../assets/DSF1945.webp" alt="Latina Princess" loading="lazy" onerror="this.style.display='none'">
         <div class="char-view-cue">View Photos</div>
         <div class="char-info">
           <span class="char-name">The Latina Princess</span>
@@ -1126,7 +942,7 @@ footer {
            data-outfits='[
              {"label":"Classic Dress","sub":"Signature Look","img":"../assets/Pics-Art-04-27-09-47-35.webp","featured":true,"badge":"Fan Favorite"}
            ]'>
-        <img class="char-photo" src="../assets/Pics-Art-04-27-09-47-35.webp" alt="Arabian Princess" loading="lazy" onerror="this.style.display='none'">
+        <img width="864" height="1158" decoding="async" class="char-photo" src="../assets/Pics-Art-04-27-09-47-35.webp" alt="Arabian Princess" loading="lazy" onerror="this.style.display='none'">
         <div class="char-view-cue">View Photos</div>
         <div class="char-info">
           <span class="char-name">Arabian Princess</span>
@@ -1144,7 +960,7 @@ footer {
              {"label":"Classic Dress","sub":"Signature Look","img":"../assets/Screenshot-20260408-130828-Instagram.webp","featured":true,"badge":"Fan Favorite"},
              {"label":"Winter Dress","sub":"Holiday Special","img":"../assets/Screenshot-20260408-132125-Instagram.webp","winter":true,"badge":"Winter"}
            ]'>
-        <img class="char-photo" src="../assets/Screenshot-20260408-130828-Instagram.webp" alt="Tinker Bell" loading="lazy" onerror="this.style.display='none'">
+        <img width="895" height="1117" decoding="async" class="char-photo" src="../assets/Screenshot-20260408-130828-Instagram.webp" alt="Tinker Bell" loading="lazy" onerror="this.style.display='none'">
         <span class="char-outfit-badge">2 Looks</span>
         <div class="char-view-cue">View Photos</div>
         <div class="char-info">
@@ -1162,7 +978,7 @@ footer {
            data-outfits='[
              {"label":"Classic Dress","sub":"Signature Look","img":"../assets/IMG-0944.webp","featured":true,"badge":"Fan Favorite"}
            ]'>
-        <img class="char-photo" src="../assets/IMG-0944.webp" alt="Alice" loading="lazy" onerror="this.style.display='none'">
+        <img width="866" height="1155" decoding="async" class="char-photo" src="../assets/IMG-0944.webp" alt="Alice" loading="lazy" onerror="this.style.display='none'">
         <div class="char-view-cue">View Photos</div>
         <div class="char-info">
           <span class="char-name">Alice</span>
@@ -1180,7 +996,7 @@ footer {
              {"label":"Classic Dress","sub":"Signature Look","img":"../assets/A7-B3162-B-149-F-4039-AFD8-14-D1-FAD8-DB8-A.webp","featured":true,"badge":"Most Popular"},
              {"label":"Winter Dress","sub":"Cold Weather Look","img":"../assets/Benefit-3.webp","winter":true,"badge":"Winter"}
            ]'>
-        <img class="char-photo" src="../assets/A7-B3162-B-149-F-4039-AFD8-14-D1-FAD8-DB8-A.webp" alt="Miracle Keeper" loading="lazy" onerror="this.style.display='none'">
+        <img width="874" height="1144" decoding="async" class="char-photo" src="../assets/A7-B3162-B-149-F-4039-AFD8-14-D1-FAD8-DB8-A.webp" alt="Miracle Keeper" loading="lazy" onerror="this.style.display='none'">
         <span class="char-outfit-badge">2 Looks</span>
         <div class="char-view-cue">View Photos</div>
         <div class="char-info">
@@ -1198,7 +1014,7 @@ footer {
            data-outfits='[
              {"label":"Classic Gown","sub":"Signature Look","img":"../assets/IMG-0612.webp","featured":true,"badge":"Most Popular"}
            ]'>
-        <img class="char-photo" src="../assets/IMG-0612.webp" alt="Miracle Keeper Sister" loading="lazy" onerror="this.style.display='none'">
+        <img width="914" height="1094" decoding="async" class="char-photo" src="../assets/IMG-0612.webp" alt="Miracle Keeper Sister" loading="lazy" onerror="this.style.display='none'">
         <div class="char-view-cue">View Photos</div>
         <div class="char-info">
           <span class="char-name">Miracle Keeper Sister</span>
@@ -1217,7 +1033,7 @@ footer {
              {"label":"Jazzercise","sub":"From the movie","img":"../assets/Screenshot-20260408-130354-Instagram.webp"},
              {"label":"Spa Day","sub":"Relaxation","img":"../assets/placeholder23b.webp"}
            ]'>
-        <img class="char-photo" src="../assets/Pics-Art-04-03-12-1.webp" alt="Nova Beat" loading="lazy" onerror="this.style.display='none'">
+        <img width="981" height="1019" decoding="async" class="char-photo" src="../assets/Pics-Art-04-03-12-1.webp" alt="Nova Beat" loading="lazy" onerror="this.style.display='none'">
         <span class="char-outfit-badge">3 Looks</span>
         <div class="char-view-cue">View Photos</div>
         <div class="char-info">
@@ -1238,7 +1054,7 @@ footer {
              {"label":"Ice Harvester","sub":"Signature Look","img":"../assets/placeholder10a.webp"},
              {"label":"Boy Toy","sub":"Signature Look","img":"../assets/Screenshot-20260408-130354-Instagram.webp"}
            ]'>
-        <img class="char-photo" src="../assets/Screenshot-20260408-130438-Instagram.webp" alt="Princes" loading="lazy" onerror="this.style.display='none'">
+        <img width="891" height="1123" decoding="async" class="char-photo" src="../assets/Screenshot-20260408-130438-Instagram.webp" alt="Princes" loading="lazy" onerror="this.style.display='none'">
         <div class="char-view-cue">View Photos</div>
         <div class="char-info">
           <span class="char-name">Princes</span>
@@ -1271,9 +1087,9 @@ footer {
       <div class="footer-brand-name">✦ Sophia's Magical Princess Party</div>
       <p class="footer-brand-tag">Bringing beloved heroine characters to life for children's celebrations across the South Houston area since 2017.</p>
       <p class="footer-socials">
-        <a href="https://www.instagram.com/sophiasprincessparty/"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.facebook.com/sophiasmagicalprincessparty/"><i class="fa-brands fa-facebook"></i></a>
-        <a href="https://www.google.com/search?client=firefox-b-1-d&q=sophias+magical+princess+party"><i class="fa-brands fa-google"></i></a>
+        <a href="https://www.instagram.com/sophiasprincessparty/" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></a>
+        <a href="https://www.facebook.com/sophiasmagicalprincessparty/" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a>
+        <a href="https://www.google.com/search?client=firefox-b-1-d&q=sophias+magical+princess+party" aria-label="Google reviews"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg></a>
       </p>
     </div>
     <div>
