@@ -1,4 +1,7 @@
 User-agent: *
 Disallow: /backstage/
-Disallow: /V2 archive/
-Disallow: /.github/
+Disallow: /V2%20Archive/
+Disallow: /.github/CNAME
+Disallow: /tools_optimize_images.py
+
+Sitemap: https://sophiasmagicalprincessparty.com/sitemap.xml

@@ -6,15 +6,21 @@
 <meta name="description" content="Sophia's Magical Princess Party has been providing magical character experiences since 2017. View our photo gallery and see the magic in action!" />
 <title>See Our Parties In Action! | Sophia's Magical Princess Party</title>
 <!-- Core Open Graph Meta Tags -->
-<meta property="og:title" content="Sophia's Magical Princess Party" />
+<meta property="og:title" content="Princess Party Photo Gallery | Sophia's Magical Princess Party" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://sophiasmagicalprincessparty.com/photos/" />
 <meta property="og:image" content="https://sophiasmagicalprincessparty.com/assets/princess-group-photo.webp" />
 <meta property="og:description" content="Sophia's Magical Princess Party has been providing magical experiences with all your favorite characters since 2017." />
 
-<!-- Optional but highly recommended dimension tags -->
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
+<meta property="og:image:width" content="1056" />
+<meta property="og:image:height" content="947" />
+<meta property="og:image:type" content="image/webp" />
+<meta property="og:image:alt" content="Five princess party characters gathered on a garden bench for storytime" />
+<meta property="og:site_name" content="Sophia's Magical Princess Party" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image:alt" content="Five princess party characters gathered on a garden bench for storytime" />
+<link rel="canonical" href="https://sophiasmagicalprincessparty.com/photos/" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cinzel:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -56,27 +62,131 @@
     line-height: 1.7; font-style: italic;
   }
 
-  /* nanogallery2 thumbnail border-radius override */
-  .ngy2_thumbnail_container,
-  .ngy2_thumbnail_container img,
-  .ngy2_thumbnail_img,
-  .nGY2GThumbnail {
-    border-radius: 10px !important;
-    overflow: hidden !important;
+  /* -- GALLERY GRID ---------------------------------------
+     Plain <img> tags so search engines can index every photo.
+     Without JS: CSS columns. With JS: a masonry grid that keeps
+     photos in reading order (left to right, top to bottom). */
+  .gallery {
+    --gap: 50px;
+    list-style: none;
+    max-width: 950px;
+    margin: 0 auto;
+    columns: 4 200px;
+    column-gap: var(--gap);
   }
-  .nGY2GThumbnail {
-    border-radius: 10px !important;
+  .gallery-item {
+    break-inside: avoid;
+    margin-bottom: var(--gap);
   }
-  /* Override nanogallery2 thumbnail wrapper */
-  div[id^="ngy2p"] .nGY2GThumbnail,
-  div[id^="ngy2p"] .ngy2_thumbnail,
-  div[id^="ngy2p"] .ngy2_thumbnail > div:first-child {
-    border-radius: 10px !important;
-    overflow: hidden !important;
+  .gallery.is-masonry {
+    display: grid;
+    grid-template-columns: repeat(var(--cols, 4), minmax(0, 1fr));
+    grid-auto-rows: 1px;
+    column-gap: var(--gap);
+    columns: auto;
   }
-  /* Gallery container centering */
-  #ngy2p {
-    margin: 0 auto !important;
+  .gallery.is-masonry .gallery-item { margin-bottom: 0; }
+  .gallery-item a {
+    display: block;
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(201,169,110,0.12);
+    box-shadow: 0 2px 10px rgba(26,17,24,0.08);
+    transition: transform 0.35s var(--ease-silk), box-shadow 0.35s var(--ease-silk);
+  }
+  .gallery-item a:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(26,17,24,0.16);
+  }
+  .gallery-item a:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 4px;
+  }
+  .gallery-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  @media (max-width: 900px) { .gallery { --gap: 28px; } }
+  @media (max-width: 600px) { .gallery { --gap: 14px; columns: 2; } }
+
+  /* -- PHOTO VIEWER (lightbox) ---------------------------- */
+  .pv {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100dvh;
+    max-width: none;
+    max-height: none;
+    background: var(--ink);
+    color: var(--cream);
+    overflow: hidden;
+  }
+  .pv::backdrop { background: rgba(26,17,24,0.6); }
+  .pv[open] { display: flex; flex-direction: column; }
+  .pv-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.9rem 1.2rem;
+    font-family: var(--ff-sans); font-size: 0.8rem; letter-spacing: 0.12em;
+    color: rgba(250,246,240,0.7);
+  }
+  .pv-stage {
+    flex: 1; min-height: 0;
+    display: flex; align-items: center; justify-content: center;
+    padding: 0 4.5rem;
+    touch-action: pan-y;
+  }
+  .pv-stage img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto; height: auto;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    transition: opacity 0.2s ease;
+  }
+  .pv-stage img.is-loading { opacity: 0.25; }
+  .pv-caption {
+    text-align: center;
+    padding: 1rem 1.5rem 1.4rem;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .pv-title {
+    font-family: var(--ff-title); font-size: 0.85rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--gold-lt);
+  }
+  .pv-desc {
+    margin-top: 0.35rem;
+    font-family: var(--ff-serif); font-style: italic; font-size: 1.05rem; line-height: 1.5;
+    color: rgba(250,246,240,0.85);
+  }
+  .pv-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 44px; height: 44px;
+    border: 1px solid rgba(232,213,163,0.35);
+    border-radius: 50%;
+    background: rgba(26,17,24,0.55);
+    color: var(--cream);
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .pv-btn:hover { background: rgba(201,169,110,0.25); border-color: var(--gold); }
+  .pv-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  .pv-btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .pv-prev, .pv-next { position: absolute; top: 50%; transform: translateY(-50%); }
+  .pv-prev { left: 1rem; }
+  .pv-next { right: 1rem; }
+  @media (max-width: 600px) {
+    .pv-stage { padding: 0 0.6rem; }
+    .pv-prev, .pv-next { top: auto; bottom: 1rem; transform: none; }
+    .pv-caption { padding: 0.8rem 4rem 1.2rem; }
+    .pv-desc { font-size: 0.95rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-item a, .pv-stage img { transition: none; }
+    .gallery-item a:hover { transform: none; }
   }
   .footer-socials { line-height: 1.7; max-width: 280px; color: white; margin-top: 0.8rem; }
   @keyframes starPulse {
@@ -116,10 +226,10 @@
   .lightbox-outfits { grid-template-columns: 1fr 1fr; gap: 0.8rem; padding: 1rem; }
 }
 </style>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
 <link rel="icon" type="image/x-icon" href="/favicon-16x16.png">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@graph": [{"@type": "ImageGallery", "@id": "https://sophiasmagicalprincessparty.com/photos/#webpage", "url": "https://sophiasmagicalprincessparty.com/photos/", "name": "Princess Party Photo Gallery | Sophia's Magical Princess Party", "description": "Photos of Sophia's Magical Princess Party characters at children's birthday parties and community events in the South Houston, Texas area.", "isPartOf": {"@id": "https://sophiasmagicalprincessparty.com/#website"}, "about": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "associatedMedia": [{"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/tinker-bell-with-giant-key.webp", "caption": "Tinker Bell kneeling in the grass beside a giant key under a rainbow", "width": 882, "height": 1133, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Tinker Bell and the giant key", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/tinker-bell-with-giant-key.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/snow-queen-hug-at-tea-party.webp", "caption": "The Snow Queen hugging a little girl in a matching blue dress at a birthday tea party", "width": 866, "height": 1155, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Snow Queen tea party hug", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/snow-queen-hug-at-tea-party.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/bayou-princess-with-young-fan.webp", "caption": "The Bayou Princess posing with a young fan dressed as a fairy", "width": 744, "height": 1344, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Bayou Princess with a young fan", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/bayou-princess-with-young-fan.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/cinderella-at-once-upon-a-market-event.webp", "caption": "Cinderella sitting in front of a pastel balloon arch at the Once Upon a Market event", "width": 900, "height": 1111, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Cinderella at Once Upon a Market", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/cinderella-at-once-upon-a-market-event.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/bayou-princess-and-rapunzel-together.webp", "caption": "The Bayou Princess and Rapunzel posing together under a floral arch", "width": 857, "height": 1167, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Bayou Princess and Rapunzel", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/bayou-princess-and-rapunzel-together.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/beauty-princess-at-candy-shop-event.webp", "caption": "The Beauty Princess in her village dress at a candy shop event next to a Sophia's Magical Princess Party sign", "width": 868, "height": 1153, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Beauty Princess at a shop event", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/beauty-princess-at-candy-shop-event.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/snow-queen-storytime-spa-party.webp", "caption": "The Snow Queen reading a story to girls in pink robes on a couch at a spa birthday party", "width": 1074, "height": 931, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Snow Queen spa party storytime", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/snow-queen-storytime-spa-party.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/kpop-trio-rooftop-pose.webp", "caption": "K-Pop Trio performers striking a pose on a city rooftop at sunset", "width": 894, "height": 1118, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "K-Pop Trio on the rooftop", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/kpop-trio-rooftop-pose.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/pop-star-impersonator-singing-on-stage.webp", "caption": "Pop Star impersonator singing on stage under sparkling lights", "width": 1051, "height": 951, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Pop Star on stage", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/pop-star-impersonator-singing-on-stage.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/snow-princess-and-snow-queen-holiday-event.webp", "caption": "The Snow Princess and the Snow Queen performing at an outdoor holiday event with poinsettias", "width": 1155, "height": 866, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Snow sisters holiday event", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/snow-princess-and-snow-queen-holiday-event.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/polynesian-princess-and-little-mermaid-with-boy.webp", "caption": "The Polynesian Princess and the Little Mermaid posing with a young boy in front of a castle backdrop", "width": 866, "height": 1155, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Polynesian Princess and Little Mermaid party", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/polynesian-princess-and-little-mermaid-with-boy.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/little-mermaid-at-south-houston-moms-fair.webp", "caption": "The Little Mermaid sitting in a giant seashell at the South Houston Moms Mommy and Me Fair", "width": 781, "height": 1281, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Little Mermaid at the Mommy and Me Fair", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/little-mermaid-at-south-houston-moms-fair.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/bayou-princess-spa-party.webp", "caption": "The Bayou Princess hugging two girls in princess dresses at a spa-themed birthday party", "width": 894, "height": 1118, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Bayou Princess spa party", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/bayou-princess-spa-party.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/beauty-princess-and-snow-queen-with-party-guests.webp", "caption": "The Beauty Princess and the Snow Queen with a group of children in princess costumes at a birthday party", "width": 866, "height": 1155, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Beauty Princess and Snow Queen party", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/beauty-princess-and-snow-queen-with-party-guests.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/little-mermaid-mermaid-themed-birthday.webp", "caption": "The Little Mermaid with a birthday girl in a mermaid dress at a mermaid-themed party", "width": 866, "height": 1155, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Mermaid birthday party", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/little-mermaid-mermaid-themed-birthday.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/plastic-princess-doll-box-birthday.webp", "caption": "The Plastic Princess next to a birthday girl posing in a life-size doll box with pink balloons", "width": 894, "height": 1118, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Plastic Princess doll box birthday", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/plastic-princess-doll-box-birthday.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/snow-queen-with-girls-in-costume.webp", "caption": "The Snow Queen in her white spirit dress surrounded by girls dressed in ice princess costumes", "width": 1155, "height": 866, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Snow Queen with costumed guests", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/snow-queen-with-girls-in-costume.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/beauty-princess-hugging-birthday-girl.webp", "caption": "The Beauty Princess in her yellow gown hugging a little girl in a rainbow tutu", "width": 894, "height": 1118, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Beauty Princess hug", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/beauty-princess-hugging-birthday-girl.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/miracle-keeper-at-trampoline-park-party.webp", "caption": "Miracle Keeper with a birthday girl in a matching outfit at a trampoline park party", "width": 894, "height": 1118, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Miracle Keeper at a trampoline park", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/miracle-keeper-at-trampoline-park-party.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/cinderella-rapunzel-snow-white-birthday.webp", "caption": "Cinderella, Rapunzel and Snow White posing with a young birthday girl in front of a balloon backdrop", "width": 1117, "height": 895, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Three princesses at a birthday", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/cinderella-rapunzel-snow-white-birthday.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/rapunzel-outdoor-storytime.webp", "caption": "Rapunzel reading a storybook to children at an outdoor birthday party", "width": 1000, "height": 1000, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Rapunzel storytime", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/rapunzel-outdoor-storytime.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/miracle-keeper-sixth-birthday-singalong.webp", "caption": "Miracle Keeper leading a singalong for children at a sixth birthday party", "width": 1135, "height": 881, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Miracle Keeper singalong", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/miracle-keeper-sixth-birthday-singalong.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/princess-party-makeover-activity.webp", "caption": "Princess performer giving a young guest a makeover with a play makeup kit at an outdoor party", "width": 866, "height": 1155, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Princess makeover activity", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/princess-party-makeover-activity.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/little-mermaid-third-birthday-group.webp", "caption": "The Little Mermaid with a group of children at an under-the-sea third birthday party", "width": 941, "height": 1063, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Little Mermaid third birthday", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/little-mermaid-third-birthday-group.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/snow-queen-coloring-with-girl.webp", "caption": "The Snow Queen coloring at the kitchen table with a little girl", "width": 1113, "height": 898, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Coloring with the Snow Queen", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/snow-queen-coloring-with-girl.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/snow-princess-and-snow-queen-castle-party.webp", "caption": "The Snow Princess and the Snow Queen with children in princess dresses at a castle-themed party", "width": 1149, "height": 870, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Snow sisters castle party", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/snow-princess-and-snow-queen-castle-party.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/arabian-princess-birthday-with-girl.webp", "caption": "The Arabian Princess with a birthday girl in a matching teal outfit under Happy Birthday balloons", "width": 841, "height": 1189, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Arabian Princess birthday", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/arabian-princess-birthday-with-girl.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/rapunzel-at-birthday-party.webp", "caption": "Rapunzel greeting children around a birthday cake at a home party", "width": 866, "height": 1155, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Rapunzel birthday visit", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/rapunzel-at-birthday-party.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/little-mermaid-with-birthday-girl.webp", "caption": "The Little Mermaid hugging a birthday girl with mermaid face paint and a tutu", "width": 828, "height": 1207, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Little Mermaid and the birthday girl", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/little-mermaid-with-birthday-girl.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/beauty-princess-on-lawn-with-toddler.webp", "caption": "The Beauty Princess sitting on the lawn in her yellow gown with a toddler at a backyard party", "width": 1003, "height": 997, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Beauty Princess backyard party", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/beauty-princess-on-lawn-with-toddler.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/snow-queen-spirit-dress-with-toddler.webp", "caption": "The Snow Queen in her white spirit dress kneeling beside a toddler at a birthday party", "width": 976, "height": 1025, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Snow Queen with a toddler", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/snow-queen-spirit-dress-with-toddler.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/cinderella-with-young-guest.webp", "caption": "Cinderella in her blue ball gown standing with a young girl on a porch", "width": 923, "height": 1084, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Cinderella with a young guest", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/cinderella-with-young-guest.webp"}, {"@type": "ImageObject", "contentUrl": "https://sophiasmagicalprincessparty.com/assets/little-mermaid-party-table-activities.webp", "caption": "The Little Mermaid leading activities with children at a party table", "width": 688, "height": 1454, "creditText": "Sophia's Magical Princess Party", "copyrightNotice": "© Sophia's Magical Princess Party", "creator": {"@id": "https://sophiasmagicalprincessparty.com/#business"}, "name": "Little Mermaid party activities", "thumbnailUrl": "https://sophiasmagicalprincessparty.com/assets/thumbs/little-mermaid-party-table-activities.webp"}]}]}
+</script>
 </head>
 <body>
 
@@ -169,65 +279,66 @@
       <h2 class="section-heading">A Gallery of <em style="font-style:italic;color:var(--rose);">Magical</em> Memories</h2>
     </div>
 
-    <div ID="ngy2p" style="max-width: 1100px;" data-nanogallery2='{
-        "itemsBaseURL": "../assets/",
-        "thumbnailWidth": "200",
-        "thumbnailHeight": "auto",
-        "thumbnailBorderVertical": 0,
-        "thumbnailBorderHorizontal": 0,
-        "colorScheme": {
-            "thumbnail": {
-            "borderColor": "rgba(0,0,0,0)"
-            }
-        },
-        "thumbnailLabel": {
-            "position": "overImageOnBottom",
-            "display": false
-        },
-        "galleryDisplayMode": "moreButton",
-        "galleryDisplayMoreStep": 3,
-        "thumbnailAlignment": "center",
-        "thumbnailGutterWidth": 50,
-        "thumbnailGutterHeight": 50,
-        "thumbnailOpenImage": true
-        }'>
-        <a href="Picsart-25-03-17-14-52-21-223.webp" data-ngthumb="thumbs/Picsart-25-03-17-14-52-21-223.webp" data-ngdesc=""></a>
-        <a href="FB-IMG-1737296679698.webp" data-ngthumb="thumbs/FB-IMG-1737296679698.webp" data-ngdesc=""></a>
-        <a href="IMG-20251014-143419.webp" data-ngthumb="thumbs/IMG-20251014-143419.webp" data-ngdesc=""></a>
-        <a href="Picsart-25-10-12-16-52-58-327.webp" data-ngthumb="thumbs/Picsart-25-10-12-16-52-58-327.webp" data-ngdesc=""></a>
-        <a href="Picsart-25-07-27-15-34-25-042.webp" data-ngthumb="thumbs/Picsart-25-07-27-15-34-25-042.webp" data-ngdesc=""></a>
-        <a href="Picsart-24-03-10-15-40-14-350.webp" data-ngthumb="thumbs/Picsart-24-03-10-15-40-14-350.webp" data-ngdesc=""></a>
-        <a href="FB-IMG-1737296659997-crop.webp" data-ngthumb="thumbs/FB-IMG-1737296659997-crop.webp" data-ngdesc=""></a>
-        <a href="Picsart-25-10-19-23-00-37-641.webp" data-ngthumb="thumbs/Picsart-25-10-19-23-00-37-641.webp" data-ngdesc=""></a>
-        <a href="Picsart-24-06-14-23-51-10-603.webp" data-ngthumb="thumbs/Picsart-24-06-14-23-51-10-603.webp" data-ngdesc=""></a>
-        <a href="20251206-111831.webp" data-ngthumb="thumbs/20251206-111831.webp" data-ngdesc=""></a>
-        <a href="IMG-20250330-193402.webp" data-ngthumb="thumbs/IMG-20250330-193402.webp" data-ngdesc=""></a>
-        <a href="Picsart-24-03-09-13-19-47-709.webp" data-ngthumb="thumbs/Picsart-24-03-09-13-19-47-709.webp" data-ngdesc=""></a>
-        <a href="Gallery-6.webp" data-ngthumb="thumbs/Gallery-6.webp" data-ngdesc=""></a>
-        <a href="Gallery-1.webp" data-ngthumb="thumbs/Gallery-1.webp" data-ngdesc=""></a>
-        <a href="Gallery-3.webp" data-ngthumb="thumbs/Gallery-3.webp" data-ngdesc=""></a>
-        <a href="Gallery-10.webp" data-ngthumb="thumbs/Gallery-10.webp" data-ngdesc=""></a>
-        <a href="Gallery-8.webp" data-ngthumb="thumbs/Gallery-8.webp" data-ngdesc=""></a>
-        <a href="Gallery-9.webp" data-ngthumb="thumbs/Gallery-9.webp" data-ngdesc=""></a>
-        <a href="Gallery-12.webp" data-ngthumb="thumbs/Gallery-12.webp" data-ngdesc=""></a>
-        <a href="Gallery-15.webp" data-ngthumb="thumbs/Gallery-15.webp" data-ngdesc=""></a>
-        <a href="Gallery-13.webp" data-ngthumb="thumbs/Gallery-13.webp" data-ngdesc=""></a>
-        <a href="Gallery-18.webp" data-ngthumb="thumbs/Gallery-18.webp" data-ngdesc=""></a>
-        <a href="Gallery-16.webp" data-ngthumb="thumbs/Gallery-16.webp" data-ngdesc=""></a>
-        <a href="Gallery-19.webp" data-ngthumb="thumbs/Gallery-19.webp" data-ngdesc=""></a>
-        <a href="Gallery-20.webp" data-ngthumb="thumbs/Gallery-20.webp" data-ngdesc=""></a>
-        <a href="Gallery-24.webp" data-ngthumb="thumbs/Gallery-24.webp" data-ngdesc=""></a>
-        <a href="Gallery-22.webp" data-ngthumb="thumbs/Gallery-22.webp" data-ngdesc=""></a>
-        <a href="Gallery-25.webp" data-ngthumb="thumbs/Gallery-25.webp" data-ngdesc=""></a>
-        <a href="Gallery-30.webp" data-ngthumb="thumbs/Gallery-30.webp" data-ngdesc=""></a>
-        <a href="Gallery-35.webp" data-ngthumb="thumbs/Gallery-35.webp" data-ngdesc=""></a>
-        <a href="Gallery-36.webp" data-ngthumb="thumbs/Gallery-36.webp" data-ngdesc=""></a>
-        <a href="Gallery-34.webp" data-ngthumb="thumbs/Gallery-34.webp" data-ngdesc=""></a>
-        <a href="Gallery-40.webp" data-ngthumb="thumbs/Gallery-40.webp" data-ngdesc=""></a>
-    </div>
+    <ul class="gallery" id="gallery">
+      <li class="gallery-item"><a href="../assets/tinker-bell-with-giant-key.webp" data-width="882" data-height="1133" data-title="Tinker Bell and the giant key"><img src="../assets/thumbs/tinker-bell-with-giant-key.webp" width="311" height="400" alt="Tinker Bell kneeling in the grass beside a giant key under a rainbow" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/snow-queen-hug-at-tea-party.webp" data-width="866" data-height="1155" data-title="Snow Queen tea party hug"><img src="../assets/thumbs/snow-queen-hug-at-tea-party.webp" width="300" height="400" alt="The Snow Queen hugging a little girl in a matching blue dress at a birthday tea party" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/bayou-princess-with-young-fan.webp" data-width="744" data-height="1344" data-title="Bayou Princess with a young fan"><img src="../assets/thumbs/bayou-princess-with-young-fan.webp" width="221" height="400" alt="The Bayou Princess posing with a young fan dressed as a fairy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/cinderella-at-once-upon-a-market-event.webp" data-width="900" data-height="1111" data-title="Cinderella at Once Upon a Market"><img src="../assets/thumbs/cinderella-at-once-upon-a-market-event.webp" width="324" height="400" alt="Cinderella sitting in front of a pastel balloon arch at the Once Upon a Market event" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/bayou-princess-and-rapunzel-together.webp" data-width="857" data-height="1167" data-title="Bayou Princess and Rapunzel"><img src="../assets/thumbs/bayou-princess-and-rapunzel-together.webp" width="294" height="400" alt="The Bayou Princess and Rapunzel posing together under a floral arch" loading="lazy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/beauty-princess-at-candy-shop-event.webp" data-width="868" data-height="1153" data-title="Beauty Princess at a shop event"><img src="../assets/thumbs/beauty-princess-at-candy-shop-event.webp" width="301" height="400" alt="The Beauty Princess in her village dress at a candy shop event next to a Sophia&#x27;s Magical Princess Party sign" loading="lazy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/snow-queen-storytime-spa-party.webp" data-width="1074" data-height="931" data-title="Snow Queen spa party storytime"><img src="../assets/thumbs/snow-queen-storytime-spa-party.webp" width="400" height="347" alt="The Snow Queen reading a story to girls in pink robes on a couch at a spa birthday party" loading="lazy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/kpop-trio-rooftop-pose.webp" data-width="894" data-height="1118" data-title="K-Pop Trio on the rooftop"><img src="../assets/thumbs/kpop-trio-rooftop-pose.webp" width="320" height="400" alt="K-Pop Trio performers striking a pose on a city rooftop at sunset" loading="lazy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/pop-star-impersonator-singing-on-stage.webp" data-width="1051" data-height="951" data-title="Pop Star on stage"><img src="../assets/thumbs/pop-star-impersonator-singing-on-stage.webp" width="400" height="362" alt="Pop Star impersonator singing on stage under sparkling lights" loading="lazy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/snow-princess-and-snow-queen-holiday-event.webp" data-width="1155" data-height="866" data-title="Snow sisters holiday event"><img src="../assets/thumbs/snow-princess-and-snow-queen-holiday-event.webp" width="400" height="300" alt="The Snow Princess and the Snow Queen performing at an outdoor holiday event with poinsettias" loading="lazy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/polynesian-princess-and-little-mermaid-with-boy.webp" data-width="866" data-height="1155" data-title="Polynesian Princess and Little Mermaid party"><img src="../assets/thumbs/polynesian-princess-and-little-mermaid-with-boy.webp" width="300" height="400" alt="The Polynesian Princess and the Little Mermaid posing with a young boy in front of a castle backdrop" loading="lazy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/little-mermaid-at-south-houston-moms-fair.webp" data-width="781" data-height="1281" data-title="Little Mermaid at the Mommy and Me Fair"><img src="../assets/thumbs/little-mermaid-at-south-houston-moms-fair.webp" width="244" height="400" alt="The Little Mermaid sitting in a giant seashell at the South Houston Moms Mommy and Me Fair" loading="lazy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/bayou-princess-spa-party.webp" data-width="894" data-height="1118" data-title="Bayou Princess spa party"><img src="../assets/thumbs/bayou-princess-spa-party.webp" width="320" height="400" alt="The Bayou Princess hugging two girls in princess dresses at a spa-themed birthday party" loading="lazy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/beauty-princess-and-snow-queen-with-party-guests.webp" data-width="866" data-height="1155" data-title="Beauty Princess and Snow Queen party"><img src="../assets/thumbs/beauty-princess-and-snow-queen-with-party-guests.webp" width="300" height="400" alt="The Beauty Princess and the Snow Queen with a group of children in princess costumes at a birthday party" loading="lazy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/little-mermaid-mermaid-themed-birthday.webp" data-width="866" data-height="1155" data-title="Mermaid birthday party"><img src="../assets/thumbs/little-mermaid-mermaid-themed-birthday.webp" width="300" height="400" alt="The Little Mermaid with a birthday girl in a mermaid dress at a mermaid-themed party" loading="lazy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/plastic-princess-doll-box-birthday.webp" data-width="894" data-height="1118" data-title="Plastic Princess doll box birthday"><img src="../assets/thumbs/plastic-princess-doll-box-birthday.webp" width="320" height="400" alt="The Plastic Princess next to a birthday girl posing in a life-size doll box with pink balloons" loading="lazy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/snow-queen-with-girls-in-costume.webp" data-width="1155" data-height="866" data-title="Snow Queen with costumed guests"><img src="../assets/thumbs/snow-queen-with-girls-in-costume.webp" width="400" height="300" alt="The Snow Queen in her white spirit dress surrounded by girls dressed in ice princess costumes" loading="lazy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/beauty-princess-hugging-birthday-girl.webp" data-width="894" data-height="1118" data-title="Beauty Princess hug"><img src="../assets/thumbs/beauty-princess-hugging-birthday-girl.webp" width="320" height="400" alt="The Beauty Princess in her yellow gown hugging a little girl in a rainbow tutu" loading="lazy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/miracle-keeper-at-trampoline-park-party.webp" data-width="894" data-height="1118" data-title="Miracle Keeper at a trampoline park"><img src="../assets/thumbs/miracle-keeper-at-trampoline-park-party.webp" width="320" height="400" alt="Miracle Keeper with a birthday girl in a matching outfit at a trampoline park party" loading="lazy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/cinderella-rapunzel-snow-white-birthday.webp" data-width="1117" data-height="895" data-title="Three princesses at a birthday"><img src="../assets/thumbs/cinderella-rapunzel-snow-white-birthday.webp" width="400" height="321" alt="Cinderella, Rapunzel and Snow White posing with a young birthday girl in front of a balloon backdrop" loading="lazy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/rapunzel-outdoor-storytime.webp" data-width="1000" data-height="1000" data-title="Rapunzel storytime"><img src="../assets/thumbs/rapunzel-outdoor-storytime.webp" width="400" height="400" alt="Rapunzel reading a storybook to children at an outdoor birthday party" loading="lazy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/miracle-keeper-sixth-birthday-singalong.webp" data-width="1135" data-height="881" data-title="Miracle Keeper singalong"><img src="../assets/thumbs/miracle-keeper-sixth-birthday-singalong.webp" width="400" height="310" alt="Miracle Keeper leading a singalong for children at a sixth birthday party" loading="lazy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/princess-party-makeover-activity.webp" data-width="866" data-height="1155" data-title="Princess makeover activity"><img src="../assets/thumbs/princess-party-makeover-activity.webp" width="300" height="400" alt="Princess performer giving a young guest a makeover with a play makeup kit at an outdoor party" loading="lazy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/little-mermaid-third-birthday-group.webp" data-width="941" data-height="1063" data-title="Little Mermaid third birthday"><img src="../assets/thumbs/little-mermaid-third-birthday-group.webp" width="354" height="400" alt="The Little Mermaid with a group of children at an under-the-sea third birthday party" loading="lazy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/snow-queen-coloring-with-girl.webp" data-width="1113" data-height="898" data-title="Coloring with the Snow Queen"><img src="../assets/thumbs/snow-queen-coloring-with-girl.webp" width="400" height="323" alt="The Snow Queen coloring at the kitchen table with a little girl" loading="lazy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/snow-princess-and-snow-queen-castle-party.webp" data-width="1149" data-height="870" data-title="Snow sisters castle party"><img src="../assets/thumbs/snow-princess-and-snow-queen-castle-party.webp" width="400" height="303" alt="The Snow Princess and the Snow Queen with children in princess dresses at a castle-themed party" loading="lazy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/arabian-princess-birthday-with-girl.webp" data-width="841" data-height="1189" data-title="Arabian Princess birthday"><img src="../assets/thumbs/arabian-princess-birthday-with-girl.webp" width="283" height="400" alt="The Arabian Princess with a birthday girl in a matching teal outfit under Happy Birthday balloons" loading="lazy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/rapunzel-at-birthday-party.webp" data-width="866" data-height="1155" data-title="Rapunzel birthday visit"><img src="../assets/thumbs/rapunzel-at-birthday-party.webp" width="300" height="400" alt="Rapunzel greeting children around a birthday cake at a home party" loading="lazy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/little-mermaid-with-birthday-girl.webp" data-width="828" data-height="1207" data-title="Little Mermaid and the birthday girl"><img src="../assets/thumbs/little-mermaid-with-birthday-girl.webp" width="274" height="400" alt="The Little Mermaid hugging a birthday girl with mermaid face paint and a tutu" loading="lazy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/beauty-princess-on-lawn-with-toddler.webp" data-width="1003" data-height="997" data-title="Beauty Princess backyard party"><img src="../assets/thumbs/beauty-princess-on-lawn-with-toddler.webp" width="400" height="398" alt="The Beauty Princess sitting on the lawn in her yellow gown with a toddler at a backyard party" loading="lazy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/snow-queen-spirit-dress-with-toddler.webp" data-width="976" data-height="1025" data-title="Snow Queen with a toddler"><img src="../assets/thumbs/snow-queen-spirit-dress-with-toddler.webp" width="381" height="400" alt="The Snow Queen in her white spirit dress kneeling beside a toddler at a birthday party" loading="lazy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/cinderella-with-young-guest.webp" data-width="923" data-height="1084" data-title="Cinderella with a young guest"><img src="../assets/thumbs/cinderella-with-young-guest.webp" width="341" height="400" alt="Cinderella in her blue ball gown standing with a young girl on a porch" loading="lazy" decoding="async"></a></li>
+      <li class="gallery-item"><a href="../assets/little-mermaid-party-table-activities.webp" data-width="688" data-height="1454" data-title="Little Mermaid party activities"><img src="../assets/thumbs/little-mermaid-party-table-activities.webp" width="189" height="400" alt="The Little Mermaid leading activities with children at a party table" loading="lazy" decoding="async"></a></li>
+    </ul>
   </div>
 </section>
 
+<!-- -- PHOTO VIEWER (opened by the gallery script) ------------ -->
+<dialog class="pv" id="pv" aria-label="Photo viewer">
+  <div class="pv-bar">
+    <span class="pv-count" id="pv-count" aria-live="polite"></span>
+    <button type="button" class="pv-btn" id="pv-close" aria-label="Close photo viewer">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <figure class="pv-stage" id="pv-stage">
+    <img id="pv-img" alt="">
+  </figure>
+  <div class="pv-caption">
+    <p class="pv-title" id="pv-title"></p>
+    <p class="pv-desc" id="pv-desc"></p>
+  </div>
+  <button type="button" class="pv-btn pv-prev" id="pv-prev" aria-label="Previous photo">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+  </button>
+  <button type="button" class="pv-btn pv-next" id="pv-next" aria-label="Next photo">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+  </button>
+</dialog>
 
 <!-- -- CTA BAND --------------------------------------------- -->
 <section class="cta-band" id="book">
@@ -257,7 +368,7 @@
         <li><a href="/#pricing">Pricing</a></li>
         <li><a href="/#testimonials">Reviews</a></li>
         <li><a href="/#faq">FAQ</a></li>
-        <li><a href="/photos"></a></li>
+        <li><a href="/photos">Gallery</a></li>
       </ul>
     </div>
     <div>
@@ -292,7 +403,7 @@
   // -------------------------------------------------------------
   // -- DYNAMIC 4-POINTED STAR FIELD FOR PHOTOS SECTION ----------
   // Stars are drawn on a canvas that auto-resizes with the section.
-  // When nanogallery2 loads more photos and the section grows taller,
+  // When the gallery reflows and the section grows taller,
   // a ResizeObserver fires and redraws stars proportionally.
   // -------------------------------------------------------------
   (function() {
@@ -404,38 +515,118 @@
       buildStars(W, H);
     }
 
-    // ResizeObserver watches the section: fires whenever nanogallery2
-    // adds more photo rows and the section grows taller.
+    // ResizeObserver watches the section: fires whenever the
+    // gallery reflows and the section changes height.
     const ro = new ResizeObserver(() => resize());
     ro.observe(section);
 
     // Initial draw
     resize();
     animId = requestAnimationFrame(render);
+  })();
 
-    // Also apply border-radius to nanogallery2 thumbnails via
-    // MutationObserver so it catches dynamically inserted items
-    const galleryEl = document.getElementById('ngy2p');
-    const thumbObserver = new MutationObserver(() => {
-      galleryEl.querySelectorAll(
-        '.nGY2GThumbnail, .ngy2_thumbnail, [class*="ngy2"]'
-      ).forEach(el => {
-        el.style.borderRadius = '10px';
-        el.style.overflow     = 'hidden';
+  // -------------------------------------------------------------
+  // -- GALLERY: masonry layout + photo viewer --------------------
+  // The photos are plain <a><img></a> markup in the HTML so search
+  // engines and AI crawlers can read every image and its alt text.
+  // To add a photo: copy a <li class="gallery-item"> line, point it
+  // at the full image and its thumbs/ copy, and set data-width,
+  // data-height, data-title and the alt text.
+  // -------------------------------------------------------------
+  (function() {
+    const gallery = document.getElementById('gallery');
+    if (!gallery) return;
+    const items = [...gallery.querySelectorAll('.gallery-item')];
+    const links = items.map(li => li.querySelector('a'));
+
+    // Masonry: each item spans as many 1px grid rows as its height,
+    // so photos stay in reading order with no ragged gaps.
+    function layout() {
+      const w    = gallery.clientWidth;
+      const cols = w >= 760 ? 4 : w >= 520 ? 3 : 2;
+      gallery.style.setProperty('--cols', cols);
+      gallery.classList.add('is-masonry');
+      const gap  = parseFloat(getComputedStyle(gallery).columnGap) || 0;
+      const colW = (w - gap * (cols - 1)) / cols;
+      items.forEach(li => {
+        const img = li.querySelector('img');
+        const h   = colW * img.getAttribute('height') / img.getAttribute('width');
+        li.style.gridRowEnd = 'span ' + Math.ceil(h + gap);
       });
+    }
+    layout();
+    new ResizeObserver(layout).observe(gallery);
+
+    // Photo viewer
+    const pv      = document.getElementById('pv');
+    const pvImg   = document.getElementById('pv-img');
+    const pvTitle = document.getElementById('pv-title');
+    const pvDesc  = document.getElementById('pv-desc');
+    const pvCount = document.getElementById('pv-count');
+    const pvStage = document.getElementById('pv-stage');
+    let index = 0;
+
+    function show(i) {
+      index = (i + links.length) % links.length;
+      const a     = links[index];
+      const thumb = a.querySelector('img');
+      pvImg.classList.add('is-loading');
+      pvImg.onload = () => pvImg.classList.remove('is-loading');
+      pvImg.src    = a.href;
+      if (pvImg.complete) pvImg.classList.remove('is-loading');
+      pvImg.width  = a.dataset.width;
+      pvImg.height = a.dataset.height;
+      pvImg.alt    = thumb.alt;
+      pvTitle.textContent = a.dataset.title || '';
+      pvDesc.textContent  = thumb.alt;
+      pvCount.textContent = (index + 1) + ' / ' + links.length;
+      // warm up the neighbours so next/previous feel instant
+      [index + 1, index - 1].forEach(n => {
+        new Image().src = links[(n + links.length) % links.length].href;
+      });
+    }
+    function open(i) {
+      show(i);
+      document.documentElement.style.overflow = 'hidden';
+      pv.showModal();
+    }
+    function cleanup() {
+      if (!document.documentElement.style.overflow) return;
+      document.documentElement.style.overflow = '';
+      links[index].focus({ preventScroll: true });
+    }
+    function closeViewer() {
+      if (pv.open) pv.close();
+      cleanup();
+    }
+    pv.addEventListener('close', cleanup); // backup for any other way the dialog closes
+
+    links.forEach((a, i) => a.addEventListener('click', e => {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; // let "open in new tab" work
+      e.preventDefault();
+      open(i);
+    }));
+    document.getElementById('pv-close').addEventListener('click', closeViewer);
+    document.getElementById('pv-prev').addEventListener('click', () => show(index - 1));
+    document.getElementById('pv-next').addEventListener('click', () => show(index + 1));
+    pv.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); show(index - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); show(index + 1); }
+      if (e.key === 'Escape')     { e.preventDefault(); closeViewer(); }
     });
-    thumbObserver.observe(galleryEl, { childList: true, subtree: true });
-
-    // Also fire once after nanogallery2 initialises (short delay)
-    setTimeout(() => {
-      galleryEl.querySelectorAll(
-        '.nGY2GThumbnail, .ngy2_thumbnail, [class*="ngy2"]'
-      ).forEach(el => {
-        el.style.borderRadius = '10px';
-        el.style.overflow     = 'hidden';
-      });
-    }, 800);
-
+    // click on the dark area around the photo closes the viewer
+    pv.addEventListener('click', e => {
+      if (e.target === pv || e.target === pvStage) closeViewer();
+    });
+    // swipe left / right on touch screens
+    let startX = null;
+    pvStage.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    pvStage.addEventListener('touchend', e => {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) show(index + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
   })();
 
   // -- Hamburger menu

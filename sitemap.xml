@@ -1,27 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://sophiasmagicalprincessparty.com/</loc>
-  <lastmod>2026-04-11T16:46:41+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://sophiasmagicalprincessparty.com/characters/</loc>
-  <lastmod>2026-04-11T16:46:41+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://sophiasmagicalprincessparty.com/photos/</loc>
-  <lastmod>2026-04-11T16:46:40+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://sophiasmagicalprincessparty.com/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <priority>1.00</priority>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/princess-group-photo.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/miracle-keeper-with-plush-jaguar.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/polynesian-princess-ocean-adventurer-outfit.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/beauty-princess-blue-village-dress.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/scottish-princess-in-meadow-with-wisps.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/kpop-trio-golden-stage-outfits.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/little-mermaid-funny-faces-with-birthday-girl.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/little-mermaid-kiss-the-girl-dress.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/bayou-princess-green-gown-party-backdrop.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/pop-star-impersonator-midnights-outfit.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/tinker-bell-fairy-sitting-in-grass.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/cinderella-blue-ball-gown.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/snow-queen-sparkling-ice-gown.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://sophiasmagicalprincessparty.com/characters/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <priority>0.80</priority>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/princess-group-photo.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/snow-queen-ice-gown-signature-look.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/snow-queen-white-spirit-dress.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/snow-queen-winter-ice-gown-holiday-event.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/kpop-trio-signature-outfits.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/kpop-trio-golden-stage-outfits.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/beauty-princess-yellow-ball-gown.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/beauty-princess-blue-village-dress.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/beauty-princess-spring-gown-with-teapot.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/cinderella-and-beauty-princess-winter-gowns.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/pop-star-impersonator-midnights-outfit.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/pop-star-impersonator-22-t-shirt-look.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/pop-star-impersonator-red-sequin-romper.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/pop-star-impersonator-ttpd-white-dress.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/pop-star-impersonator-lover-purple-bodysuit.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/pop-star-impersonator-blue-chevron-bodysuit.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/pop-star-impersonator-sequin-shirt-dress.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/pop-star-impersonator-evermore-orange-dress.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/pop-star-impersonator-folklore-gown.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/pop-star-impersonator-reputation-bodysuit.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/pop-star-impersonator-fearless-fringe-dress.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/pop-star-impersonator-sequin-blazer-dress.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/snow-princess-travel-dress.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/snow-princess-coronation-gown.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/snow-princess-queen-dress.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/snow-princess-winter-dress-and-cape.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/polynesian-princess-wayfinder-outfit.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/polynesian-princess-ocean-adventurer-outfit.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/rapunzel-purple-gown-with-chameleon.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/cinderella-classic-blue-gown-gazebo.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/little-mermaid-parks-gown.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/little-mermaid-kiss-the-girl-dress.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/little-mermaid-dry-land-tail.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/little-mermaid-water-safe-swim-tail.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/scottish-princess-classic-dress.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/sleeping-beauty-rose-gold-dress.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/sleeping-beauty-pink-parks-dress.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/snow-white-classic-dress.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/snow-white-pastel-seasonal-dress.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/snow-white-winter-dress-christmas.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/bayou-princess-classic-ballgown.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/latina-princess-red-gown.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/arabian-princess-teal-outfit.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/tinker-bell-classic-dress-with-sunflower.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/tinker-bell-red-holiday-dress.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/alice-blue-dress-and-pinafore.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/miracle-keeper-classic-embroidered-dress.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/miracle-keeper-winter-dress.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/miracle-keeper-sister-lilac-flower-gown.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/plastic-princess-pink-dress.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/plastic-princess-and-prince-in-doll-box.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/prince-charming-with-cinderella.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/sailor-prince-with-little-mermaid.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://sophiasmagicalprincessparty.com/photos/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <priority>0.80</priority>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/tinker-bell-with-giant-key.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/snow-queen-hug-at-tea-party.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/bayou-princess-with-young-fan.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/cinderella-at-once-upon-a-market-event.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/bayou-princess-and-rapunzel-together.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/beauty-princess-at-candy-shop-event.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/snow-queen-storytime-spa-party.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/kpop-trio-rooftop-pose.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/pop-star-impersonator-singing-on-stage.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/snow-princess-and-snow-queen-holiday-event.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/polynesian-princess-and-little-mermaid-with-boy.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/little-mermaid-at-south-houston-moms-fair.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/bayou-princess-spa-party.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/beauty-princess-and-snow-queen-with-party-guests.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/little-mermaid-mermaid-themed-birthday.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/plastic-princess-doll-box-birthday.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/snow-queen-with-girls-in-costume.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/beauty-princess-hugging-birthday-girl.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/miracle-keeper-at-trampoline-park-party.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/cinderella-rapunzel-snow-white-birthday.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/rapunzel-outdoor-storytime.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/miracle-keeper-sixth-birthday-singalong.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/princess-party-makeover-activity.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/little-mermaid-third-birthday-group.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/snow-queen-coloring-with-girl.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/snow-princess-and-snow-queen-castle-party.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/arabian-princess-birthday-with-girl.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/rapunzel-at-birthday-party.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/little-mermaid-with-birthday-girl.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/beauty-princess-on-lawn-with-toddler.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/snow-queen-spirit-dress-with-toddler.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/cinderella-with-young-guest.webp</image:loc></image:image>
+    <image:image><image:loc>https://sophiasmagicalprincessparty.com/assets/little-mermaid-party-table-activities.webp</image:loc></image:image>
+  </url>
 </urlset>
